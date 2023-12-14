@@ -25,7 +25,7 @@ function StartInstance(){
     loader.load(
         'https://raw.githubusercontent.com/solocyberengineer/assets/main/DevRoom.glb',
         function( gltf ){
-            scene.add(gltf.scene)
+            scene.add( gltf.scene )
         },
         function( xhr ){
             console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
