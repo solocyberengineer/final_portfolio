@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary text-dark">
         <ul>
-            <li><router-link to="/" class="link">Home</router-link></li>
-            <li><router-link to="/about" class="link">About</router-link></li>
-            <li><router-link to="/contact" class="link">Contact</router-link></li>
+            <li class="nav-item"><router-link to="/" class="nav-link link">Home</router-link></li>
+            <li class="nav-item"><router-link to="/about" class="nav-link link">About</router-link></li>
+            <li class="nav-item"><router-link to="/contact" class="nav-link link">Contact</router-link></li>
         </ul>
     </nav>
 </template>
