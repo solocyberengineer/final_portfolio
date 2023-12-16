@@ -1,9 +1,9 @@
 <template>
-    <div class="page">
-        <div class="content">
-            Home
+    <main class="page">
+        <div class="container-fluid text-center text-white">
+            <h1 class="display-1 fs-1 py-5">Hi, I'm Rezaar <span>An aspiring Fullstack Developer</span></h1>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -21,8 +21,13 @@ export default {
 }
 </script>
 
-<style>
-.content {
-    position: absolute;
+<style scoped>
+.display-1 {
+    font-family: 'Anton', Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+.display-1 span {
+    display: block;
 }
 </style>

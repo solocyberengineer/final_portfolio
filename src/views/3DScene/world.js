@@ -10,11 +10,11 @@ import {
     // DirectionalLight,
     // SpotLight,
     // SpotLightHelper,
+    MeshStandardMaterial,
     VSMShadowMap,
     PointLight,
     PointLightHelper,
     // RectAreaLight,
-    
 } from 'three';
 import {
     GLTFLoader
@@ -23,8 +23,24 @@ import {
     OrbitControls
 } from 'three/addons/controls/OrbitControls.js';
 
+function createPointLight(){
+    let light = new PointLight(0xffffff, 1, 100);
+    light.shadow.mapSize.width = 1024
+    light.shadow.mapSize.height = 1024
+    light.shadow.camera.near = 0.5
+    light.shadow.camera.far = 25
+    light.shadow.blurSamples = 7
+    light.shadow.radius = 5
+    light.castShadow = true;
+    light.angle = 1
+
+    return light
+}
 
 function StartInstance() {
+    // const WIDTH = window.visualViewport.width
+    // const WIDTH = window.visualViewport.height
+
     const loader = new GLTFLoader();
 
     const scene = new Scene();
@@ -32,50 +48,64 @@ function StartInstance() {
     console.log(light)
     scene.add( light );
 
-    const directionalLight = new PointLight(0xfbfcae, 1, 100);
-    directionalLight.shadow.mapSize.width = 512
-    directionalLight.shadow.mapSize.height = 512
-    directionalLight.shadow.camera.near = 0.5
-    directionalLight.shadow.camera.far = 25
-    directionalLight.shadow.blurSamples = 7
-    directionalLight.shadow.radius = 5
-    directionalLight.castShadow = true;
-    console.log(directionalLight)
-    directionalLight.color.set(0, 0, 0);
-    directionalLight.angle = 1
-    directionalLight.decay = 2
-    scene.add(directionalLight);
+    const light1 = createPointLight();
+    scene.add(light1);
 
-    const lightHelper = new PointLightHelper( directionalLight );
+    const lightHelper = new PointLightHelper( light1 );
     scene.add( lightHelper )
 
+    let light2 = createPointLight();
+    scene.add(light2)
+
+    let LightData = {
+        set1: {
+            r: 0,
+            g: 0,
+            b: 0,
+            step: 0.5
+        }
+    }
+    
+    let rgbLights = null;
     loader.load(
         'http://localhost:5500/src/assets/DevRoom.glb',
         function (gltf) {
             gltf.castShadow = true
             console.log(gltf)
-
+            
+            
             for( let obj of gltf.scene.children ){
                 obj.castShadow = true;
                 obj.receiveShadow = true;
                 if(obj.name == 'Plane003'){
-                    console.log(obj)
+                    // console.log(obj)
                     obj.material = new MeshPhysicalMaterial({
                         roughness: 0,
                         transmission: 1, // Add transparency
                         thickness: 0.1
                       });
                 }
-                if(obj.name == 'LightBulb'){
-                    directionalLight.position.set(obj.position.x, obj.position.y, obj.position.z);
-                    obj.material = new MeshPhysicalMaterial({
-                        roughness: 0,
-                        transmission: 1, // Add transparency
-                        thickness: 0.1
-                      });
+                if( obj.name == 'RGBLights' ){
+                    rgbLights = obj
                 }
             }
-
+            light1.position.set(
+                rgbLights.position.x + rgbLights.children[11].position.x,
+                rgbLights.position.y + rgbLights.children[11].position.y,
+                rgbLights.position.z + rgbLights.children[11].position.z
+            )
+            light2.position.set(
+                rgbLights.position.x + rgbLights.children[22].position.x,
+                rgbLights.position.y + rgbLights.children[22].position.y,
+                rgbLights.position.z + rgbLights.children[22].position.z
+            )
+            console.log(rgbLights.children[0])
+            for( let light of rgbLights.children ){
+                light.material = new MeshStandardMaterial();
+                light.material.emissive.r = sinWave( LightData.set1.r )
+                light.material.emissive.g = sinWave( LightData.set1.g )
+                light.material.emissive.b = sinWave( LightData.set1.b )
+            }
             scene.add(gltf.scene)
         },
         function (xhr) {
@@ -86,7 +116,7 @@ function StartInstance() {
         }
     );
 
-    const camera = new PerspectiveCamera(
+    let camera = new PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
         0.001,
@@ -104,7 +134,7 @@ function StartInstance() {
     renderer.domElement.style['top'] = "0";
     renderer.domElement.style['z-index'] = "-1";
     renderer.shadowMap.enabled = true;
-    const controls = new OrbitControls(camera, renderer.domElement);
+    let controls = new OrbitControls(camera, renderer.domElement);
     document.body.appendChild(renderer.domElement);
 
 
@@ -121,36 +151,72 @@ function StartInstance() {
     // let r = 0;
     // let g = 0;
     // let b = 0;
-    let LightData = {
-        set1: {
-            r: 0,
-            g: 0,
-            b: 0,
-            step: 1
-        }
-    }
+    
 
     function sinWave(x, offset=0){
         // x is the degrees
         return Math.sin( ( x * Math.PI / 180) + offset )
     }
-    
+
+    let intensity = 2
+
+    function animateRGBLights(){
+        light1.color.r = sinWave( LightData.set1.r ) * intensity
+        light1.color.g = sinWave( LightData.set1.g, 2 ) * intensity
+        light1.color.b = sinWave( LightData.set1.b, -2 ) * intensity
+        light2.color.r = sinWave( LightData.set1.r ) * intensity
+        light2.color.g = sinWave( LightData.set1.g, 2 ) * intensity
+        light2.color.b = sinWave( LightData.set1.b, -2 ) * intensity
+
+        if( rgbLights ){
+            for( let light of rgbLights.children ){
+                light.material = new MeshStandardMaterial();
+                light.material.emissive.r = sinWave( LightData.set1.r ) * 200
+                light.material.emissive.g = sinWave( LightData.set1.g, 2 ) * 200
+                light.material.emissive.b = sinWave( LightData.set1.b, -2 ) * 200
+            }
+        }
+
+        LightData.set1.r += LightData.set1.step
+        LightData.set1.g += LightData.set1.step
+        LightData.set1.b += LightData.set1.step
+    }
+
+    camera.position.X = 0.75
+    camera.position.Y = 0.83
+    camera.position.x = 1.0520640006212119
+    camera.position.y = 0.9493811008397122
+    camera.position.z = 0.2253970049032800
+
+    camera.rotation._x = -0.43239701439446665
+    camera.rotation._y = 1.1125775092421613
+    camera.rotation._z = 0.3924444641399651
+    console.log(camera)
+
+    window.addEventListener('resize', function(){
+        camera = new PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.001,
+            1000
+        );
+        controls = new OrbitControls(camera, renderer.domElement);
+        document.body.appendChild(renderer.domElement);
+        camera.position.X = 0.75
+        camera.position.Y = 0.83
+        camera.position.x = 1.0520640006212119
+        camera.position.y = 0.9493811008397122
+        camera.position.z = 0.2253970049032800
+        camera.rotation._x = -0.43239701439446665
+        camera.rotation._y = 1.1125775092421613
+        camera.rotation._z = 0.3924444641399651
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    })
+
     function animate() {
         requestAnimationFrame(animate);
-        controls.update()
-        
-        // console.log(camera.position)
-        // r += 1
-        // console.log(sinWave(directionalLight.color.r))
-        directionalLight.color.r = sinWave( LightData.set1.r )
-        LightData.set1.r += LightData.set1.step
-        directionalLight.color.g = sinWave( LightData.set1.g, 2 )
-        LightData.set1.g += LightData.set1.step
-        directionalLight.color.b = sinWave( LightData.set1.b, -2 )
-        LightData.set1.b += LightData.set1.step
-        // directionalLight.color.g = 0
-
-
+        controls.update();
+        animateRGBLights();
         renderer.render(scene, camera);
     }
     animate();

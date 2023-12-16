@@ -4,11 +4,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomeView.vue';
 import AboutPage from '../views/About.vue';
 import ContactPage from '../views/Contact.vue';
+import SkillsPage from '../views/SkillsView.vue';
 
 const routes = [
     createRoute('/', 'Home', HomePage),
     createRoute('/about', 'About', AboutPage),
-    createRoute('/contact', 'Contact', ContactPage)
+    createRoute('/contact', 'Contact', ContactPage),
+    createRoute('/skills', 'Skills', SkillsPage),
 ]
 
 const router = createRouter({
