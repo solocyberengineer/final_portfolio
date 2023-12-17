@@ -13,7 +13,7 @@ import {
     MeshStandardMaterial,
     VSMShadowMap,
     PointLight,
-    PointLightHelper,
+    // PointLightHelper,
     // RectAreaLight,
 } from 'three';
 import {
@@ -38,8 +38,9 @@ function createPointLight(){
 }
 
 function StartInstance() {
-    // const WIDTH = window.visualViewport.width
-    // const WIDTH = window.visualViewport.height
+    let resolution = 0.1;
+    let WIDTH = window.innerWidth * resolution;
+    let HEIGHT = window.innerHeight * resolution;
 
     const loader = new GLTFLoader();
 
@@ -51,8 +52,8 @@ function StartInstance() {
     const light1 = createPointLight();
     scene.add(light1);
 
-    const lightHelper = new PointLightHelper( light1 );
-    scene.add( lightHelper )
+    // const lightHelper = new PointLightHelper( light1 );
+    // scene.add( lightHelper )
 
     let light2 = createPointLight();
     scene.add(light2)
@@ -118,7 +119,7 @@ function StartInstance() {
 
     let camera = new PerspectiveCamera(
         75,
-        window.innerWidth / window.innerHeight,
+        WIDTH / HEIGHT,
         0.001,
         1000
     );
@@ -126,13 +127,15 @@ function StartInstance() {
     const renderer = new WebGLRenderer({
         antialias: true
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(WIDTH, HEIGHT);
     renderer.setClearColor(0x303030, 1);
     renderer.shadowMap.type = VSMShadowMap
 
     renderer.domElement.style['position'] = "absolute";
     renderer.domElement.style['top'] = "0";
     renderer.domElement.style['z-index'] = "-1";
+    renderer.domElement.style['width'] = '100%';
+    renderer.domElement.style['height'] = '100%';
     renderer.shadowMap.enabled = true;
     let controls = new OrbitControls(camera, renderer.domElement);
     document.body.appendChild(renderer.domElement);
@@ -200,17 +203,16 @@ function StartInstance() {
             0.001,
             1000
         );
-        controls = new OrbitControls(camera, renderer.domElement);
-        document.body.appendChild(renderer.domElement);
-        camera.position.X = 0.75
-        camera.position.Y = 0.83
+        // controls = new OrbitControls(camera, renderer.domElement);
+        // document.body.appendChild(renderer.domElement);
         camera.position.x = 1.0520640006212119
         camera.position.y = 0.9493811008397122
         camera.position.z = 0.2253970049032800
-        camera.rotation._x = -0.43239701439446665
-        camera.rotation._y = 1.1125775092421613
-        camera.rotation._z = 0.3924444641399651
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.rotation.y += Math.PI/2
+        // camera.lookAt(0,5,0)
+        // renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.domElement.style['width'] = '100%';
+        renderer.domElement.style['height'] = '100%';
     })
 
     function animate() {

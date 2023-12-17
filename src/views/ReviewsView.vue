@@ -1,10 +1,13 @@
 <template>
     <main class="container-fluid text-white">
-        Skills
+        <h1>Reviews</h1>
     </main>
 </template>
 <script>
 export default {
-    name: 'SkillsPage'
+    name: "ReviewsComponent"
 }
 </script>
+
+<style scoped>
+</style>

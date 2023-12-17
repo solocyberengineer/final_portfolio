@@ -5,7 +5,7 @@
                 <span><i class="bi bi-three-dots"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>
@@ -13,10 +13,10 @@
                         <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/contact">Projects</router-link>
+                        <router-link class="nav-link" to="/projects">Projects</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/contact">Reviews</router-link>
+                        <router-link class="nav-link" to="/reviews">Reviews</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/contact">Education</router-link>
@@ -47,14 +47,30 @@ nav {
     z-index: 1;
     width: 100%;
 }
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
 .link {
     color:white;
     text-decoration: none;
 }
+.nav-link:hover {
+    /* background: white; */
+    /* color: var(--dark); */
+}
 .nav-link {
-    padding-inline: 0 !important;
+    padding-inline: 0vw !important;
     margin-inline: 0.6vw !important;
     border-bottom: 1px solid transparent;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.1vw;
+    text-shadow: 0px 0px 10px black;
+    text-align: center;
+    color: white;
 }
 .nav-link:focus {
     border-bottom: 1px solid white;
