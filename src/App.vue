@@ -1,10 +1,10 @@
 <template>
-  <LoaderComp v-if="loading" />
-  <div class="vh-100" v-else @wheel="onWheel">
+  <LoaderComp :class="{ doneLoading: !loading }" />
+  <div @wheel="onWheel">
     <NavBar />
     <router-view />
   </div>
-  <FooterComponent v-if="displayFooter" :bottom="vh"/>
+  <FooterComponent :bottom="vh"/>
 </template>
 
 <script>
@@ -22,22 +22,17 @@ export default {
   data() {
     return {
       loading: true,
+      scroll: {
+        bar: 'none',
+        overflow: 'hidden'
+      },
       vh: -14
     }
   },
   mounted() {
-    // document.onreadystatechange = () => {
-    //   if (document.readyState == "complete") {
-    //     this.loading = false
-    //   }
-    // }
     window.onload = () => {
       this.loading = false
     }
-    // document.addEventListener('DOMContentLoaded', function(){
-    //   alert('ok')
-    //   this.loading = false
-    // });
   },
   methods: {
     onWheel(event) {
@@ -57,6 +52,35 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-  background: black;
+  background: black !important;
+}
+
+.disableScroller {
+  overflow: hidden;
+}
+
+.doneLoading {
+  animation-name: doneLoading;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes doneLoading {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  99% {
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 </style>

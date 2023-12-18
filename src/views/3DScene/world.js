@@ -38,7 +38,7 @@ function createPointLight(){
 }
 
 function StartInstance() {
-    let resolution = 0.1;
+    let resolution = 0.2;
     let WIDTH = window.innerWidth * resolution;
     let HEIGHT = window.innerHeight * resolution;
 
@@ -69,7 +69,7 @@ function StartInstance() {
     
     let rgbLights = null;
     loader.load(
-        'http://localhost:5500/src/assets/DevRoom.glb',
+        'http://192.168.8.125:5500//src/assets/DevRoom.glb',
         function (gltf) {
             gltf.castShadow = true
             console.log(gltf)
@@ -131,7 +131,7 @@ function StartInstance() {
     renderer.setClearColor(0x303030, 1);
     renderer.shadowMap.type = VSMShadowMap
 
-    renderer.domElement.style['position'] = "absolute";
+    renderer.domElement.style['position'] = "fixed";
     renderer.domElement.style['top'] = "0";
     renderer.domElement.style['z-index'] = "-1";
     renderer.domElement.style['width'] = '100%';

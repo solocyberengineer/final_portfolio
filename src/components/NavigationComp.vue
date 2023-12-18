@@ -57,10 +57,6 @@ nav {
     color:white;
     text-decoration: none;
 }
-.nav-link:hover {
-    /* background: white; */
-    /* color: var(--dark); */
-}
 .nav-link {
     padding-inline: 0vw !important;
     margin-inline: 0.6vw !important;
@@ -68,11 +64,12 @@ nav {
     font-family: 'Inter', sans-serif;
     font-weight: 200;
     font-size: 1.1vw;
-    text-shadow: 0px 0px 10px black;
+    border-bottom: 1px solid transparent !important;
+    /* text-shadow: 0px 0px 10px black; */
     text-align: center;
     color: white;
 }
 .nav-link:focus {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid white !important;
 }
 </style>

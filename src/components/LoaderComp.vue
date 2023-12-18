@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid vh-100 bg-dark position-absolute z-2 d-flex align-items-center justify-content-center">
+    <div class="loaderContainer container-fluid vh-100 bg-dark position-fixed z-2 align-items-center justify-content-center">
         <div class="d-flex align-items-center justify-content-center flex-column">
             <h1 class="loader">MRBUD</h1>
             <div class="spinner"></div>
@@ -15,10 +15,7 @@ export default {
 
 <style scoped>
 .loaderContainer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #303030;
+    display: flex;
 }
 .loader {
     font-family: 'Anton', fantasy;
@@ -68,13 +65,6 @@ export default {
         background-position: 0% 50%;
         text-shadow: 0 0px 0px transparent;
 
-    }
-}
-
-@keyframes loaderDisappear {
-    0% {
-    }
-    100% {
     }
 }
 </style>

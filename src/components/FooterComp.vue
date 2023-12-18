@@ -1,5 +1,5 @@
 <template>
-    <footer class="container-fluid position-fixed bg-dark text-center d-flex align-items-center justify-content-center" :class="{ hideFooter: open, showFooter: !open }">
+    <footer class="container-fluid bg-dark text-center d-flex align-items-center justify-content-center">
         <small class="text-white">Copyright&copy;{{ year['year'] }}</small>
     </footer>
 </template>
@@ -13,9 +13,9 @@ export default {
     watch: {
         bottom(){
             if( this.bottom == -14 ){
-                this.open = false
-            } else if(this.bottom == 0){
                 this.open = true
+            } else if(this.bottom == 0){
+                this.open = false
             }
         }
     },
@@ -27,7 +27,7 @@ export default {
                 expire: null
             },
             animate: 'paused',
-            open: false
+            open: true
         }
     },
     mounted(){
@@ -59,10 +59,10 @@ export default {
 
 <style scoped>
 footer {
-    bottom: 0vh;
     font-family: 'Inter', sans-serif;
     font-size: 100 !important;
     height: 14vh;
+    position: relative;
 }
 
 .hideFooter{
