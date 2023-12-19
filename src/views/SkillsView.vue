@@ -1,7 +1,7 @@
 <template>
-    <main class="container-fluid text-white">
+    <div class="container-fluid text-white">
         <h1 class="text-black">Skills</h1>
-    </main>
+    </div>
 </template>
 <script>
 export default {

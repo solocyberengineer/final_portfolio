@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Importing pages
 import HomePage from '../views/HomeView.vue';
-import AboutPage from '../views/About.vue';
-import ContactPage from '../views/Contact.vue';
+import AboutPage from '../views/AboutView.vue';
+import ContactPage from '../views/ContactView.vue';
 import SkillsPage from '../views/SkillsView.vue';
 import ProjectsPage from '../views/ProjectsView.vue';
 import ReviewsPage from '../views/ReviewsView.vue';
