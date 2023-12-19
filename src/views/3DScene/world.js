@@ -38,7 +38,7 @@ function createPointLight(){
 }
 
 function StartInstance() {
-    let resolution = 0.2;
+    let resolution = 1;
     let WIDTH = window.innerWidth * resolution;
     let HEIGHT = window.innerHeight * resolution;
 
@@ -69,7 +69,7 @@ function StartInstance() {
     
     let rgbLights = null;
     loader.load(
-        'http://192.168.8.125:5500//src/assets/DevRoom.glb',
+        'http://localhost:5500//src/assets/DevRoom.glb',
         function (gltf) {
             gltf.castShadow = true
             console.log(gltf)

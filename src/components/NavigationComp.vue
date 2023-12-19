@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-black navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-body-black navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="bi bi-three-dots"></i></span>
@@ -19,7 +19,7 @@
                         <router-link class="nav-link" to="/reviews">Reviews</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/contact">Education</router-link>
+                        <router-link class="nav-link" to="/resume">Education</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/skills">Skills</router-link>
@@ -40,11 +40,15 @@ export default {
 </script>
 
 <style>
+
+
 nav {
     position: absolute;
     top: 0;
     /* background-color: rgba(0,0,0,0.2); */
     z-index: 1;
+    height: var(--navBar);
+    padding-inline: 0 !important;
     width: 100%;
 }
 .navbar-toggler {

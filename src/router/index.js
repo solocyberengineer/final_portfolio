@@ -7,6 +7,7 @@ import ContactPage from '../views/Contact.vue';
 import SkillsPage from '../views/SkillsView.vue';
 import ProjectsPage from '../views/ProjectsView.vue';
 import ReviewsPage from '../views/ReviewsView.vue';
+import ResumePage from '../views/ResumeView.vue';
 
 const routes = [
     createRoute('/', 'Home', HomePage),
@@ -15,6 +16,7 @@ const routes = [
     createRoute('/skills', 'Skills', SkillsPage),
     createRoute('/projects', 'Projects', ProjectsPage),
     createRoute('/reviews', 'Reviews', ReviewsPage),
+    createRoute('/resume', 'Resume', ResumePage),
 ]
 
 const router = createRouter({

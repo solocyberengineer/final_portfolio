@@ -2,7 +2,9 @@
   <LoaderComp :class="{ doneLoading: !loading }" />
   <div @wheel="onWheel">
     <NavBar />
-    <router-view />
+    <main>
+      <router-view />
+    </main>
   </div>
   <FooterComponent :bottom="vh"/>
 </template>
@@ -48,11 +50,21 @@ export default {
 </script>
 
 <style>
+:root {
+    --navBar: 8vh;
+    --mainContent: 100vh;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-  background: black !important;
+  background: white !important;
+}
+
+main {
+  height: var(--mainContent);
+  padding-inline: 5%;
 }
 
 .disableScroller {

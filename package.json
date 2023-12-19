@@ -12,9 +12,11 @@
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.2",
     "core-js": "^3.8.3",
+    "json-server": "^0.17.4",
     "three": "^0.159.0",
     "vue": "^3.2.13",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vuex-composition-helpers": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
