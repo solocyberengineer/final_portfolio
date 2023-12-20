@@ -64,7 +64,6 @@ body {
 
 main {
   height: var(--mainContent);
-  padding-inline: 5%;
 }
 
 .disableScroller {

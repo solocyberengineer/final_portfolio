@@ -73,9 +73,6 @@ nav {
     text-align: center;
     color: white;
 }
-.nav-link:hover {
-    font-weight: 900;
-}
 .nav-link:focus {
     border-bottom: 1px solid white !important;
 }

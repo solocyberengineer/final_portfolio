@@ -1,6 +1,6 @@
 <template>
     <footer class="container-fluid bg-dark text-center d-flex align-items-center justify-content-center">
-        <small class="text-white">Copyright&copy;{{ year['year'] }}</small>
+        <small class="text-white">Rezaar's Portfolio&copy;{{ year['year'] }}</small>
     </footer>
 </template>
 
@@ -32,24 +32,21 @@ export default {
     },
     mounted(){
         this.year = localStorage.getItem('year') ? JSON.parse( localStorage.getItem('year') ) : {year: '...', expire: null}
-
-        try {
-            if( !this.year['expire'] || this.year['expire'] < (new Date().getTime() - 3600) ){
-                fetch(this.timeAPIURL).then(res => {
-                    return res.json()
-                }).then(res => {
-                    this.year = {
-                        year: new Date(res['datetime']).getFullYear(),
-                        expire: new Date().getTime()
-                    }
-                    localStorage.setItem('year', JSON.stringify(this.year))
-                })
-            }
-        } catch(e) {
-            this.year = {
-                year: new Date().getFullYear(),
-                expire: null
-            }
+        if( !this.year['expire'] || this.year['expire'] < (new Date().getTime() - 3600) ){
+            fetch(this.timeAPIURL).then(res => {
+                return res.json()
+            }).then(res => {
+                this.year = {
+                    year: new Date(res['datetime']).getFullYear(),
+                    expire: new Date().getTime()
+                }
+                localStorage.setItem('year', JSON.stringify(this.year))
+            }).catch( () => {
+                this.year = {
+                    year: new Date().getFullYear(),
+                    expire: null
+                }
+            })
         }
     },
     methods: {

@@ -1,10 +1,13 @@
 <template>
-    <main class="page">
-        Home
-    </main>
+    <PageComponent>
+        <template #Content>
+            <h1>Home</h1>
+        </template>
+    </PageComponent>
 </template>
 
 <script>
+import PageComponent from '@/components/PageComp.vue';
 
 export default {
     name: "HomePage",
@@ -15,6 +18,7 @@ export default {
         }
     },
     components: {
+        PageComponent
     }
 }
 </script>

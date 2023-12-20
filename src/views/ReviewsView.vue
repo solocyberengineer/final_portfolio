@@ -1,7 +1,7 @@
 <template>
     <PageComponent>
         <template #Content>
-            <div class="bg-white">Reviews</div>
+            <h1>Reviews</h1>
         </template>
     </PageComponent>
 </template>
