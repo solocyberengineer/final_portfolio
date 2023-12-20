@@ -1,7 +1,7 @@
 <template>
     <PageComponent>
         <template #Content>
-            <div class="bg-white">Reviews</div>
+            <h1>Reviews</h1>
         </template>
     </PageComponent>
 </template>
@@ -19,9 +19,5 @@ export default {
 </script>
 
 <style scoped>
-.cardsContainer {
-    display: grid;
-    grid-template-columns: repeat(2, calc(100%/2));
-    perspective: 1000px;
-}
+
 </style>

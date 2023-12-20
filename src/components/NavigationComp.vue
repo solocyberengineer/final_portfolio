@@ -40,8 +40,6 @@ export default {
 </script>
 
 <style>
-
-
 nav {
     position: absolute;
     top: 0;
@@ -73,10 +71,7 @@ nav {
     text-align: center;
     color: white;
 }
-.nav-link:hover {
-    font-weight: 900;
-}
 .nav-link:focus {
-    border-bottom: 1px solid white !important;
+    border-bottom: 1px solid black !important;
 }
 </style>

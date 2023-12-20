@@ -1,10 +1,17 @@
 <template>
-    <div class="container-fluid text-white">
-        <h1 class="text-black">Skills</h1>
-    </div>
+    <PageComponent>
+        <template #Content>
+            <h1>Skills</h1>
+        </template>
+    </PageComponent>
 </template>
 <script>
+import PageComponent from '@/components/PageComp.vue'
+
 export default {
-    name: 'SkillsPage'
+    name: 'SkillsPage',
+    components: {
+        PageComponent
+    }
 }
 </script>
