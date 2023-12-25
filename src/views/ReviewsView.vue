@@ -6,13 +6,11 @@
     </PageComponent>
 </template>
 <script>
-// import ReviewCardComponent from '../components/ReviewCard.vue';
 import PageComponent from '../components/PageComp.vue';
 
 export default {
     name: "ReviewsComponent",
     components: {
-        // ReviewCardComponent,
         PageComponent,
     }
 }

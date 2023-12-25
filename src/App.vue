@@ -12,7 +12,7 @@
 <script>
 import LoaderComp from './components/LoaderComp.vue';
 import NavBar from './components/NavigationComp.vue';
-import FooterComponent from './components/FooterComp.vue';
+import FooterComponent from '@/components/FooterComp.vue';
 
 export default {
   name: 'App',

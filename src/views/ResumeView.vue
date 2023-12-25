@@ -6,7 +6,7 @@
     </PageComponent>
 </template>
 <script>
-import PageComponent from '@/components/PageComp.vue'
+import PageComponent from '@/components/PageComp.vue';
 
 export default {
     name: "ResumePage",
