@@ -1,9 +1,21 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
-export default createStore({
-    state: {},
-    getters: {},
-    mutations: {},
-    actions: {},
-    modules: {}
+const store = createStore({
+    state:{
+        path: null
+    },
+    getters:{},
+    mutations:{
+        setpath(state, path){
+            state.path = path;
+        }
+    },
+    actions:{
+        setPath(context, path){
+            context.commit('setpath', path);
+        }
+    },
+    modules:{}
 });
+
+export default store

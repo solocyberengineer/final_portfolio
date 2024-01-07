@@ -1,12 +1,13 @@
 <template>
   <LoaderComp :class="{ doneLoading: !loading }" />
-  <div @wheel="onWheel">
+  <div>
     <NavBar />
     <main>
       <router-view />
     </main>
   </div>
   <FooterComponent :bottom="vh"/>
+  <!-- <div ref="cursor" class="cursor"></div> -->
 </template>
 
 <script>
@@ -23,12 +24,7 @@ export default {
   },
   data() {
     return {
-      loading: true,
-      scroll: {
-        bar: 'none',
-        overflow: 'hidden'
-      },
-      vh: -14
+      loading: true
     }
   },
   mounted() {
@@ -37,14 +33,6 @@ export default {
     }
   },
   methods: {
-    onWheel(event) {
-      if (event.deltaY > 0) {
-        this.vh = 0
-      } else if (event.deltaY < 0) {
-        this.vh = -14
-      }
-    }
-
   }
 }
 </script>
@@ -53,6 +41,12 @@ export default {
 :root {
     --navBar: 8vh;
     --mainContent: 100vh;
+    --terminalRGBA: rgba(31, 25, 41, 0.8);
+    --terminal: rgb(31, 25, 41);
+    /* --terminal: white; */
+    --carbon: #303030;
+    --col-5: calc( calc(100%/12) * 5);
+    --col-7: calc( calc(100%/12) * 7);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -63,11 +57,15 @@ export default {
 }
 
 body {
-  background: white !important;
+  /* background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('@/assets/IMG_8235.jpg'); */
+  background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
 main {
   height: var(--mainContent);
+  /* overflow: hidden; */
   /* padding-inline: 5%; */
 }
 
@@ -82,6 +80,17 @@ main {
 }
 *::-webkit-scrollbar {
   display: none;
+}
+
+.cursor {
+  transition: 1s;
+  background-color: black;
+  padding: 30px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  /* top: 50%; */
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
 @keyframes doneLoading {

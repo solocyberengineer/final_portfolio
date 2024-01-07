@@ -1,5 +1,6 @@
 <template>
     <PageComponent>
+        <template #Name>{{ routeName }}</template>
         <template #Content>
             <h1>Reviews</h1>
         </template>
@@ -10,8 +11,22 @@ import PageComponent from '../components/PageComp.vue';
 
 export default {
     name: "ReviewsComponent",
+    mounted(){
+        this.setPath();
+        console.log( this.$store.state.path );
+    },
+    methods:{
+        setPath(){
+            this.$store.dispatch('setPath', this.routeName);
+        }
+    },
     components: {
         PageComponent,
+    },
+    computed: {
+        routeName(){
+            return this.$route.name;
+        }
     }
 }
 </script>

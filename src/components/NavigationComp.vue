@@ -1,34 +1,35 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-black navbar-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+        <div class="container-fluid bg-transparent">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="bi bi-three-dots"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/">Home</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/about">About</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/projects">Projects</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/projects">Projects</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/reviews">Reviews</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/reviews">Reviews</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/resume">Education</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/resume">Education</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/skills">Skills</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/skills">Skills</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/contact">Contact</router-link>
+                        <router-link class="nav-link fw-light fs-7" to="/contact">Contact</router-link>
                     </li>
                 </ul>
             </div>
+            <a href="#" class="navbar-brand text-white fs-3 fw-bold">Rezaar</a>
         </div>
     </nav>
 </template>
@@ -41,13 +42,17 @@ export default {
 
 <style>
 nav {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
-    /* background-color: rgba(0,0,0,0.2); */
-    z-index: 1;
+    background-color: none !important;
+    z-index: 2;
     height: var(--navBar);
     padding-inline: 0 !important;
     width: 100%;
+    align-items: stretch !important;
+}
+.navbar {
+    padding: 0 !important;
 }
 .navbar-toggler {
     border: none;
@@ -70,6 +75,14 @@ nav {
     /* text-shadow: 0px 0px 10px black; */
     text-align: center;
     color: white;
+
+    /* &::before {
+        content: "Home";
+        position: absolute;
+        color: transparent;
+        border-bottom: 1px solid black !important;
+
+    } */
 }
 .nav-link:focus {
     border-bottom: 1px solid black !important;
