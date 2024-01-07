@@ -1,11 +1,11 @@
 <template>
-    <!-- <div class="loaderContainer container-fluid vh-100 bg-dark position-fixed z-3 align-items-center justify-content-center">
+    <div class="loaderContainer container-fluid vh-100 bg-dark position-fixed z-3 align-items-center justify-content-center">
         <div class="d-flex align-items-center justify-content-center flex-column">
             <h1 class="loader">MRBUD</h1>
             <div class="spinner"></div>
         </div>
-    </div> -->
-    <div></div>
+    </div>
+    <!-- <div></div> -->
 </template>
 
 <script>

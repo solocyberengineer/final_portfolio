@@ -7,17 +7,25 @@
                     <div class="col-5 p-5">
                         <div class="image-viewer">
                             <div class="image"></div>
-                            <div class="fs-5 fw-light py-5">I'm an aspiring FullStack Developer</div>
+                            <div class="fs-4 fw-light py-5">I'm an aspiring 
+                                <span class="aspiration">FullStack Developer</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-7 p-3 terminal-container">
+                    <div class="col-7 px-4 py-5 terminal-container">
                         <div ref="terminal" class="terminal text-white">
                             <div class="container tab-container h-100"><div ref="tab_title" class="tab-title"><small>Terminal 1</small></div><div ref="tty_interface" class="tty-interface">
                                 <span>$&nbsp;</span>whoami
                             </div></div>
-                            <div class="container tab-container h-100"><div ref="tab_title" class="tab-title"><small>Terminal 1</small></div><div ref="tty_interface" class="tty-interface">
+                            <div class="container tab-container h-100"><div ref="tab_title" class="tab-title"><small>Terminal 2</small></div><div ref="tty_interface" class="tty-interface">
                                 <span>$&nbsp;</span>netstat -anop
                             </div></div>
+                        </div>
+                        <div class="window-tab-container">
+                            <ul>
+                                <li class="window-tabs"><div class="icon"></div></li>
+                                <li class="window-tabs"><div class="icon"></div></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -92,16 +100,16 @@ export default {
 </script>
 
 <style scoped>
-
 .terminal-container {
     perspective: 1000px;
     transform-style: preserve-3d;
     /* perspective-origin: 50% 50%; */
+    padding-bottom: 0 !important;
 }
 
 .terminal {
     background-color: var(--terminal);
-    height: 100%;
+    height: 90%;
     border: 1px solid transparent;
     border-radius: 10px;
     box-shadow: 0 0 20px 2px rgba(0,0,0,0.3);
@@ -120,7 +128,10 @@ export default {
         width: 100%;
         height: 100%;
         border-radius: 10px;
+        transform: translate3d(0, 0, 100px) rotateY(0deg) rotateX(0deg) scale(100%);
         border: 2px solid rgba(255,255,255,0.4);
+        background-color: transparent;
+        /* backdrop-filter: blur(0.1px); */
     }
 }
 
@@ -149,10 +160,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 2px solid snow;
-    border-bottom: 1px solid grey;
-    border-right: 1px solid grey;
-    border-left: 1px solid grey;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid transparent;
+    border-right:2px solid grey;
+    border-left: 2px solid grey;
 }
 
 .tab-container:last-child .tab-title {
@@ -179,6 +190,11 @@ export default {
 .terminal-container:hover .tab-container {
     transform-style: none;
     transform: translateZ(0px) scale(96%);
+}
+
+.terminal-container:hover .tab-container:nth-child(1){
+    /* transform-style: none; */
+    /* transform: translateZ(1px) scale(96%); */
 }
 
 .terminal-container:hover .tty-interface {
@@ -211,5 +227,46 @@ export default {
     border: 1px solid black;
 }
 
+.window-tab-container {
+    width: 100%;
+    height: 10%;
+    /* background: red; */
+}
 
+.window-tab-container ul {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    /* widows: ; */
+}
+
+.window-tabs {
+    /* border: 1px solid blue; */
+    height: 100%;
+    aspect-ratio: 1;
+    padding: 6px;
+    /* background: grey; */
+}
+
+.icon {
+    background-color: rgba(255,255,255,1);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.16vw;
+}
+
+.aspiration {
+    font-weight: 900;
+    color: white;
+    /* text-shadow: 0 0 2px black,
+                 0 0 2px black,
+                 0 0 2px black,
+                 0 0 2px black,
+                 0 0 2px black; */
+    /* border-bottom: 1px solid black; */
+    -webkit-text-stroke: 1px var(--carbon);
+}
 </style>
