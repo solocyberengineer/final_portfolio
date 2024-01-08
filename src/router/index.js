@@ -16,7 +16,7 @@ const routes = [
     createRoute('/skills', 'Skills', SkillsPage),
     createRoute('/projects', 'Projects', ProjectsPage),
     createRoute('/reviews', 'Reviews', ReviewsPage),
-    createRoute('/resume', 'Resume', ResumePage),
+    createRoute('/resume', 'Resume', ResumePage)
 ]
 
 const router = createRouter({

@@ -1,0 +1,38 @@
+{
+    "home": {
+        "background": null
+    },
+    "testimonials": [
+        {
+            "person": null,
+            "profile": null,
+            "quote": null
+        }
+    ],
+    "skills": [
+        {
+            "name": null,
+            "level": null,
+            "description": null,
+            "icon": null
+        }
+    ],
+    "education": [
+        {
+            "year": null,
+            "name": null,
+            "description": null
+        }
+    ],
+    "projects": [
+        {
+            "thumbnail": null,
+            "github_link": null,
+            "netlify_link": null
+        }
+    ],
+    "about": {
+        "profile": null,
+        "story": null 
+    }
+}

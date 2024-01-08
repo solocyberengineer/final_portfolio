@@ -2,7 +2,7 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <h1>About</h1>
+            <h1>about</h1>
         </template>
     </PageComponent>
 </template>
@@ -33,4 +33,7 @@ export default {
 </script>
 
 <style>
+a {
+    padding-top: 100px;
+}
 </style>

@@ -53,20 +53,25 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-  user-select: none;
+  /* user-select: none; */
 }
 
 body {
   /* background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('@/assets/IMG_8235.jpg'); */
-  background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
+  /* background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
 }
 
 main {
   height: var(--mainContent);
+  /* padding-top: var(--navBar); */
   /* overflow: hidden; */
   /* padding-inline: 5%; */
+}
+
+.background {
+    padding-top: var(--navBar);
 }
 
 .disableScroller {

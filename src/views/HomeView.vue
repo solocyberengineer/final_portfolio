@@ -2,7 +2,7 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <div class="container-fluid h-100">
+            <div class="container-fluid h-100 background">
                 <div class="row h-100">
                     <div class="col-5 p-5">
                         <div class="image-viewer">
@@ -48,6 +48,7 @@ export default {
         }
     },
     mounted(){
+        this.setTextColor(false);
         // this is used to restrict usage of numbers out of the following range
         Number.prototype.clamp = function(min, max) {
             return Math.min(Math.max(this, min), max);
@@ -84,8 +85,8 @@ export default {
         setPath(){
             this.$store.dispatch('setPath', this.routeName);
         },
-        terminalRotation(){
-            console.log(this.$refs);
+        setTextColor(light){
+            this.$store.dispatch('setTextColor', light);
         }
     },
     components: {
@@ -100,6 +101,13 @@ export default {
 </script>
 
 <style scoped>
+
+.background {
+    background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
+    background-position: center;
+    background-size: cover;
+    padding-top: var(--navBar);
+}
 .terminal-container {
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -221,7 +229,7 @@ export default {
     height: auto;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: url('@/assets/portfolioImage.jpg');
+    background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('@/assets/portfolioImage.jpg');
     background-size: cover;
     /* background-position: center; */
     border: 1px solid black;
