@@ -7,7 +7,7 @@
                     <div class="col-5 p-5">
                         <div class="image-viewer">
                             <div class="image"></div>
-                            <div class="fs-4 fw-light py-5">I'm an aspiring 
+                            <div class="fs-4 fw-light py-5 text-light">I'm an aspiring 
                                 <span class="aspiration">FullStack Developer</span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ export default {
         }
     },
     mounted(){
-        this.setTextColor(false);
+        this.setTextColor(true);
         // this is used to restrict usage of numbers out of the following range
         Number.prototype.clamp = function(min, max) {
             return Math.min(Math.max(this, min), max);
@@ -103,7 +103,7 @@ export default {
 <style scoped>
 
 .background {
-    background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
+    background: linear-gradient( 94deg, black var(--col-5), rgba(0,0,0,0.8) calc( var(--col-5) + 2px), rgba(0,0,0,0.8) ), url('@/assets/IMG_8235.jpg');
     background-position: center;
     background-size: cover;
     padding-top: var(--navBar);
@@ -229,10 +229,17 @@ export default {
     height: auto;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('@/assets/portfolioImage.jpg');
+    background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('@/assets/profile_portfolio.jpg');
     background-size: cover;
     /* background-position: center; */
-    border: 1px solid black;
+    border: 10px dashed black;
+    background-blend-mode:color-dodge;
+    /* animation-name: pRotation;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.25, .25, .25, .25); */
+    /* animation-play-state: paused; */
+    
 }
 
 .window-tab-container {
@@ -268,13 +275,22 @@ export default {
 
 .aspiration {
     font-weight: 900;
-    color: white;
+    color: black;
     /* text-shadow: 0 0 2px black,
                  0 0 2px black,
                  0 0 2px black,
                  0 0 2px black,
                  0 0 2px black; */
     /* border-bottom: 1px solid black; */
-    -webkit-text-stroke: 1px var(--carbon);
+    -webkit-text-stroke: 1px white;
+}
+
+@keyframes pRotation {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
 </style>

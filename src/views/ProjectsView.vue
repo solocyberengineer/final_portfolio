@@ -2,7 +2,7 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <div class="container-fluid background">
+            <div class="container-fluid background h-100">
                 <div class="gradient"></div>
                 <video class="back_video" poster="@/assets/hoonipig.jpg" autoplay="true" loop muted>
                     <source src="@/assets/hoonipig.mp4">
@@ -116,11 +116,7 @@ export default {
     z-index: 1 !important;
 }
 
-.title {
-    height: var(--navBar);
-    -webkit-text-stroke: 1px white;
-    color: transparent !important;
-}
+
 .project-layout {
     /* background-color: red; */
     height: calc( 100% - calc(var(--navBar) * 2) );

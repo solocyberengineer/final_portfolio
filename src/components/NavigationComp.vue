@@ -5,7 +5,7 @@
                 <span><i class="bi bi-three-dots"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0 col-5 d-flex justify-content-center">
                     <li class="nav-item">
                         <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/">Home</router-link>
                     </li>
@@ -19,17 +19,14 @@
                         <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/reviews">Reviews</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/resume">Education</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/skills">Skills</router-link>
+                        <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/resume">Resume</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link :class="{ light: light }" class="nav-link fw-light fs-7" to="/contact">Contact</router-link>
                     </li>
                 </ul>
             </div>
-            <a href="#" class="navbar-brand text-white fs-3 fw-bold">Rezaar</a>
+            <a href="#" class="navbar-brand text-white fs-2 fw-bolder">MRBUD</a>
         </div>
     </nav>
 </template>
@@ -86,6 +83,10 @@ nav {
     border-bottom: 1px solid transparent !important;
     /* text-shadow: 0px 0px 10px black; */
     text-align: center;
+    color: white;
+}
+.navbar-brand {
+    /* -webkit-text-stroke: 1px black; */
     color: white;
 }
 </style>

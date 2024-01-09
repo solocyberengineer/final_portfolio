@@ -54,6 +54,7 @@ export default {
 
 * {
   /* user-select: none; */
+  box-sizing: border-box;
 }
 
 body {
@@ -64,7 +65,10 @@ body {
 }
 
 main {
+  /* height: minmax( 100vh, 160vh ); */
   height: var(--mainContent);
+  /* min-height: 100vh; */
+  /* max-hw: ; */
   /* padding-top: var(--navBar); */
   /* overflow: hidden; */
   /* padding-inline: 5%; */
