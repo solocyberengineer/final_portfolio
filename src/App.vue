@@ -47,6 +47,7 @@ export default {
     --carbon: #303030;
     --col-5: calc( calc(100%/12) * 5);
     --col-7: calc( calc(100%/12) * 7);
+    --baby_blue: #3498db;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -57,6 +58,9 @@ export default {
   box-sizing: border-box;
 }
 
+*::selection {
+  /* background-color: #3498db; */
+}
 body {
   /* background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('@/assets/IMG_8235.jpg'); */
   /* background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');

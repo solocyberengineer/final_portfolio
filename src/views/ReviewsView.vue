@@ -68,9 +68,9 @@ import PageComponent from '../components/PageComp.vue';
 export default {
     name: "ReviewsComponent",
     mounted(){
+        this.setTextColor(true);
         this.setPath();
         console.log( this.$store.state.path );
-        this.setTextColor(true);
     },
     methods:{
         setPath(){
@@ -110,7 +110,7 @@ export default {
 }
 
 .subtitle h5 {
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px #3498db;
     color: black;
 }
 
@@ -147,7 +147,7 @@ export default {
     background-position: center;
 }
 .person_quote p {
-    /* color: white; */
+    color: white;
 }
 
 .pwatch {
