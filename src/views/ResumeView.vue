@@ -11,7 +11,7 @@
                                 <div class="d-flex align-items-center justify-content-start p-0">
                                     <div class="page_title text-white fs-4 fw-light">Experiences & Education</div>
                                 </div>
-                                <div class="row card_container py-5">
+                                <div class="row card_container py-5 d-flex">
                                     <div class="p-1 custom_card">
                                         <div class="bg-white h-100">
                                             <div class="h-25">
@@ -495,5 +495,10 @@ export default {
     border-radius: 0.6vw;
 }
 
+@media screen and (max-width: 991px) {
+    .background {
+        height: auto !important;
+    }
+}
 
 </style>

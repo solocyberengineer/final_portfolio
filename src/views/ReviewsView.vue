@@ -164,4 +164,10 @@ export default {
     color: yellow;
     padding: 1px;
 }
+
+@media screen and (max-width: 991px) {
+    .background {
+        height: auto !important;
+    }
+}
 </style>

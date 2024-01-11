@@ -122,4 +122,9 @@ a {
     justify-content: space-evenly;
 }
 
+@media screen and (max-width: 991px) {
+    .background {
+        height: auto !important;
+    }
+}
 </style>

@@ -2,7 +2,7 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <div class="container-fluid background h-100">
+            <div class="container-fluid background">
                 <div class="gradient"></div>
                 <video class="back_video" poster="@/assets/hoonipig.jpg" autoplay="true" loop muted>
                     <source src="@/assets/hoonipig.mp4">
@@ -252,4 +252,12 @@ export default {
 .p-nav button img {
     height: 100%;
     object-fit: contain;
-}</style>
+}
+
+@media screen and (max-width: 991px) {
+    .background {
+        height: auto !important;
+    }
+}
+
+</style>

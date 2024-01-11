@@ -1628,7 +1628,8 @@ export default {
     }
 }
 </script>
-<style>:root {
+<style>
+:root {
     --scale: 100%;
 }
 svg {

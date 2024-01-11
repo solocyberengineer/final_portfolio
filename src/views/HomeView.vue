@@ -2,19 +2,9 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <div class="container-fluid h-100 background">
+            <div class="container-fluid background">
                 <div class="row h-100 z-1">
-                    <div class="col-5 p-5 profile_cover">
-                        <div class="image-viewer">
-                            <div class="w-50 p-4 img">
-                                <div class="image"></div>
-                            </div>
-                            <div class="fs-4 fw-light py-5 text-light">I'm an aspiring 
-                                <span class="aspiration">FullStack Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-7 px-4 py-5 terminal-container">
+                    <div class="col-lg-7 px-4 py-5 terminal-container">
                         <div ref="terminal" class="terminal text-white">
                             <div ref="terminal_out" class="container tab-container h-100">
                                 <!-- <div ref="tab_title" class="tab-title"><small>Terminal 1</small></div> -->
@@ -30,6 +20,16 @@
                                 <li class="window-tabs"><div class="icon"></div></li>
                                 <li class="window-tabs"><div class="icon"></div></li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 p-5 profile_cover">
+                        <div class="image-viewer">
+                            <div class="w-50 p-4 img">
+                                <div class="image"></div>
+                            </div>
+                            <div class="fs-4 fw-light py-5 text-light">I'm an aspiring 
+                                <span class="aspiration">FullStack Developer</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,6 +110,7 @@ export default {
     background-position: center;
     background-size: cover;
     padding-top: var(--navBar);
+    /* height: 100vh !important; */
 }
 .terminal-container {
     perspective: 1000px;
@@ -330,12 +331,12 @@ export default {
     }
 }
 
-@keyframes pRotation {
-    0% {
-        transform: rotateZ(0deg);
+@media screen and (max-width: 991px) {
+    .terminal-container {
+        height: 80vh;
     }
-    100% {
-        transform: rotateZ(360deg);
+    .background {
+        height: auto !important;
     }
 }
 </style>

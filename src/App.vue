@@ -77,7 +77,7 @@ body {
 
 main {
   /* height: minmax( 100vh, 160vh ); */
-  height: var(--mainContent);
+  min-height: var(--mainContent);
   /* min-height: 100vh; */
   /* max-hw: ; */
   /* padding-top: var(--navBar); */
@@ -87,6 +87,7 @@ main {
 
 .background {
     padding-top: var(--navBar);
+    height: 100vh !important;
 }
 
 .disableScroller {
@@ -175,5 +176,9 @@ main {
         transform: translate(0%, 0%);
         opacity: 1;
     }
+}
+
+@media screen and (max-width: 991px){
+  
 }
 </style>
