@@ -292,7 +292,7 @@ export default {
     name: "ResumePage",
     data() {
         return {
-            ex_ed: false,
+            ex_ed: true,
             scroll: false,
             scroll_count: 0,
             timer: null
