@@ -3,7 +3,8 @@ import { createStore } from 'vuex';
 const store = createStore({
     state:{
         path: null,
-        light: false
+        light: false,
+        scroll_disabled: false
     },
     getters:{},
     mutations:{

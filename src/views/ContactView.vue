@@ -6,7 +6,7 @@
                 <div class="container-fluid h-100 position-relative z-2 px-5 py-3">
                     <h1 class="title text-white z-2 position-relative">Reach Me</h1>
                     <div class="row subtitle">
-                        <small>I'm curious to find out what oppurtunities lie ahead</small>
+                        <small><i>I'm curious to find out what oppurtunities are ahead</i></small>
                     </div>
                     <div class="row contact_layout">
                         <div class="col-6 contact-information d-flex align-items-center flex-column">
@@ -113,6 +113,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: start;
+
+    & small i {
+        color: var(--baby_blue);
+    }
 }
 
 .contact_layout {

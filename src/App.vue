@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      loading: true
+      loading: true,
     }
   },
   mounted() {
@@ -32,7 +32,13 @@ export default {
       this.loading = false
     }
   },
+  computed: {
+    disable_scroll(){
+      return 'hidden';
+    }
+  },
   methods: {
+    
   }
 }
 </script>
@@ -66,6 +72,7 @@ body {
   /* background: linear-gradient( 94deg, white var(--col-5), var(--terminalRGBA) calc( var(--col-5) + 2px), var(--terminalRGBA) ), url('@/assets/IMG_8235.jpg');
   background-position: center;
   background-size: cover; */
+  /* overflow: hidden; */
 }
 
 main {
