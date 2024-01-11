@@ -3,10 +3,12 @@
         <template #Name>{{ routeName }}</template>
         <template #Content>
             <div class="container-fluid h-100 background">
-                <div class="row h-100">
-                    <div class="col-5 p-5">
+                <div class="row h-100 z-1">
+                    <div class="col-5 p-5 profile_cover">
                         <div class="image-viewer">
-                            <div class="image"></div>
+                            <div class="w-50 p-4 img">
+                                <div class="image"></div>
+                            </div>
                             <div class="fs-4 fw-light py-5 text-light">I'm an aspiring 
                                 <span class="aspiration">FullStack Developer</span>
                             </div>
@@ -14,12 +16,14 @@
                     </div>
                     <div class="col-7 px-4 py-5 terminal-container">
                         <div ref="terminal" class="terminal text-white">
-                            <div class="container tab-container h-100"><div ref="tab_title" class="tab-title"><small>Terminal 1</small></div><div ref="tty_interface" class="tty-interface">
-                                <span>$&nbsp;</span>whoami
-                            </div></div>
-                            <div class="container tab-container h-100"><div ref="tab_title" class="tab-title"><small>Terminal 2</small></div><div ref="tty_interface" class="tty-interface">
-                                <span>$&nbsp;</span>netstat -anop
-                            </div></div>
+                            <div ref="terminal_out" class="container tab-container h-100">
+                                <!-- <div ref="tab_title" class="tab-title"><small>Terminal 1</small></div> -->
+                                <div ref="tty_interface" class="tty-interface px-5 d-flex align-items-center justify-content-evenly flex-column h-100">
+                                    <h1 class="fw-bolder">Welcome to</h1>
+                                    <h1 class="fw-bolder">my page.</h1>
+                                    <h1>I'm Rezaar</h1>
+                                </div>
+                            </div>
                         </div>
                         <div class="window-tab-container">
                             <ul>
@@ -73,12 +77,11 @@ export default {
         }
         this.$refs.terminal.onmouseenter = () => {
             // this.$refs.terminal.style['background'] = "var(--terminal)";
-            this.$refs.tty_interface.style['background'] = "var(--terminal)";
+            // this.$refs.tty_interface.style['background'] = "var(--terminal)";
         }
         this.$refs.terminal.onmouseleave = () => {
-            this.$refs.tty_interface.style['background'] = "var(--terminalRGBA)";
+            // this.$refs.tty_interface.style['background'] = "var(--terminalRGBA)";
             // this.$refs.terminal.style['background'] = "var(--terminalRGBA)";
-
         }
     },
     methods:{
@@ -103,7 +106,7 @@ export default {
 <style scoped>
 
 .background {
-    background: linear-gradient( 94deg, black var(--col-5), rgba(0,0,0,0.8) calc( var(--col-5) + 2px), rgba(0,0,0,0.8) ), url('@/assets/IMG_8235.jpg');
+    /* background: linear-gradient( 94deg, black var(--col-5), rgba(0,0,0,0.7) calc( var(--col-5) + 2px), rgba(0,0,0,0.7) ), url('@/assets/IMG_8235.jpg'); */
     background-position: center;
     background-size: cover;
     padding-top: var(--navBar);
@@ -116,7 +119,7 @@ export default {
 }
 
 .terminal {
-    background-color: var(--terminal);
+    /* background-color: var(--terminal); */
     height: 90%;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -136,8 +139,8 @@ export default {
         width: 100%;
         height: 100%;
         border-radius: 10px;
-        transform: translate3d(0, 0, 100px) rotateY(0deg) rotateX(0deg) scale(100%);
-        border: 2px solid rgba(255,255,255,0.4);
+        transform: translate3d(0, 0, 0px) rotateY(0deg) rotateX(0deg) scale(100%);
+        border: 2px solid white;
         background-color: transparent;
         /* backdrop-filter: blur(0.1px); */
     }
@@ -165,30 +168,46 @@ export default {
     background-color: var(--terminal);
     width: 20%;
     height: 8%;
+    /* left: 0; */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 2px solid grey;
+    border-top: 2px solid white;
     border-bottom: 2px solid transparent;
-    border-right:2px solid grey;
-    border-left: 2px solid grey;
+    border-right:2px solid white;
+    border-left: 2px solid white;
 }
 
 .tab-container:last-child .tab-title {
-    margin-left: 20%;
+    /* margin-left: 20%; */
 }
 
 .tty-interface {
-    background: var(--terminalRGBA);
+    /* background: var(--terminalRGBA); */
     width: 100%;
     height: 92%;
-    border-top: 2px solid grey;
-    border-bottom: 2px solid grey;
-    border-right: 2px solid grey;
-    border-left: 2px solid grey;
+    /* border-top: 2px solid white; */
+    /* border-bottom: 2px solid white; */
+    /* border-right: 2px solid white; */
+    /* border-left: 2px solid white; */
     transition: 500ms;
     padding: 6px;
-    color: lime;
+    /* color: yellow; */
+}
+.tty-interface h1 {
+    font-size: 5vw;
+    -webkit-text-stroke: 2px yellow;
+    color: transparent;
+
+    &:first-child {
+        text-align: start;
+        width: 100%;
+    }
+
+    &:last-child {
+        text-align: end;
+        width: 100%;
+    }
 }
 
 .terminal-container:hover .terminal {
@@ -205,13 +224,15 @@ export default {
     /* transform: translateZ(1px) scale(96%); */
 }
 
-.terminal-container:hover .tty-interface {
-    border: 1px solid transparent;
-    box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.3);
-}
+
 
 .terminal-container:hover .tab-title {
     border-bottom: 1px solid transparent;
+}
+
+.profile_cover {
+    z-index: 1;
+    /* background: linear-gradient(-20deg, black, black); */
 }
 
 .image-viewer {
@@ -222,17 +243,23 @@ export default {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    /* background: red; */
+    /* border: 1px solid white; */
+    /* border-radius: 1vw; */
 }
-
+.img {
+    border: 1px solid white;
+    border-radius: 1.5vw;
+}
 .image {
-    width: 50%;
+    width: 100%;
     height: auto;
     aspect-ratio: 1;
-    border-radius: 50%;
+    border-radius: 1vw;
     background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('@/assets/profile_portfolio.jpg');
     background-size: cover;
     /* background-position: center; */
-    border: 10px dashed black;
+    /* border: 10px dashed black; */
     background-blend-mode:color-dodge;
     /* animation-name: pRotation;
     animation-duration: 6s;
@@ -282,7 +309,25 @@ export default {
                  0 0 2px black,
                  0 0 2px black; */
     /* border-bottom: 1px solid black; */
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px var(--baby_blue);
+}
+
+.back_video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+
+    &::before {
+        content: "asd";
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @keyframes pRotation {

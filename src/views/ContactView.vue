@@ -122,6 +122,9 @@ export default {
 .contact_layout {
     /* background-color: rgba(255,255,255,1); */
     height: calc( 100% - 4% - var(--navBar) );
+    animation-name: slideDown;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 .contact {
     background: black;

@@ -91,6 +91,9 @@ a {
 .about_layout {
     background: black;
     height: calc( 100% - var(--navBar) );
+    animation-name: slideIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
 }
 
 .image {
@@ -118,4 +121,5 @@ a {
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 </style>

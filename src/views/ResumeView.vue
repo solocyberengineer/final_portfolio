@@ -495,26 +495,5 @@ export default {
     border-radius: 0.6vw;
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translate(-50%, 0%);
-        opacity: 0;
-    }
 
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translate(0%, 50%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}</style>
+</style>

@@ -118,6 +118,9 @@ export default {
     /* background-color: red; */
     height: calc( 100% - var(--navBar) - var(--navBar) - 2% );
     min-height: fit-content;
+    animation-name: slideInRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .reviews {
