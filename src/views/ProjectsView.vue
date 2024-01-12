@@ -4,45 +4,33 @@
         <template #Content>
             <div class="container-fluid background">
                 <div class="gradient"></div>
-                <video class="back_video" poster="@/assets/hoonipig.jpg" autoplay="true" loop muted>
-                    <source src="@/assets/hoonipig.mp4">
+                <video class="back_video" :poster="current_project.thumbnail" autoplay="true" loop muted>
+                    <source :src="current_project.video">
                 </video>
                 <div class="container-fluid h-100 position-relative z-2 px-5 py-3">
                     <h1 class="title text-white z-2 position-relative">My Projects</h1>
                     <div class="row project-layout">
                         <div class="col-lg-4 p-info text-white d-flex align-items-start justify-content-center flex-column">
-                            <p class="w-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel expedita magnam
-                                unde sequi dolores, dolorem nobis illum tenetur deserunt, ipsam doloribus debitis amet fuga
-                                minus, dolor eos ratione similique. Beatae.</p>
+                            <!-- {{ this.current_project }} -->
+                            <p class="w-75">{{ this.current_project.description }}</p>
                             <div class="d-flex w-50">
-                                <button class="btn btn-dark m-1 p-btn">Github</button>
-                                <button class="btn btn-light text-dark m-1 p-btn">Site</button>
+                                <button class="btn btn-dark m-1 p-btn" @click="github">Github</button>
+                                <button class="btn btn-light text-dark m-1 p-btn" @click="site">Site</button>
                             </div>
                         </div>
                         <div id="projectCarousel" class="col-lg-8 slider-layout d-flex align-items-center carousel slide" data-bs-ride="carousel">
                             <div class="slider-container carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
+                                <div class="carousel-item" data-bs-interval="10000" v-for="(project, index) in projects" :key="project" :class="{ 'carousel-item': true, 'active': index === activeIndex }" @click="setProject(project.name)">
                                     <div class="d-flex h-100 justify-content-center">
                                         <div class="project">
-                                            <div class="image" image=""></div>
+                                            <div class="image" image="" :style="{
+                                                'background-image': `url(${project.thumbnail})`,
+                                                'background-position': 'center',
+                                                'background-size': 'cover'
+                                            }"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item" data-bs-interval="2000">
-                                    <div class="d-flex h-100 justify-content-center">
-                                        <div class="project">
-                                            <div class="image" image=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="d-flex h-100 justify-content-center">
-                                        <div class="project">
-                                            <div class="image" image=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -65,7 +53,21 @@ import PageComponent from '@/components/PageComp.vue';
 
 export default {
     name: "ProjectsPage",
+    data(){
+        return {
+            activeIndex: 0,
+            current_project: {
+                "name":"keyboard",
+                "thumbnail": "https://i.ibb.co/h8JcQ9z/game-controller.png",
+                "video": '',
+                "description": "Click a project for it to display here",
+                "github_link": "https://github.com",
+                "netlify_link": "https://netlify.com"
+            }
+        }
+    },
     mounted() {
+        // this.current_project = this.projects[1];
         this.setPath();
         console.log(this.$store.state.path);
         this.setTextColor(true);
@@ -76,6 +78,17 @@ export default {
         },
         setTextColor(light) {
             this.$store.dispatch('setTextColor', light);
+        },
+        setProject(){
+            this.current_project = this.projects[this.activeIndex];
+            console.log( this.current_project );
+            // alert('hello world');
+        },
+        github(){
+            location.href = this.current_project.github_link
+        },
+        site(){
+            location.href = this.current_project.netlify_link
         }
     },
     components: {
@@ -84,6 +97,9 @@ export default {
     computed: {
         routeName() {
             return this.$route.name;
+        },
+        projects(){
+            return this.$store.state.projectsData;
         }
     }
 }

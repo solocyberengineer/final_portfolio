@@ -11,31 +11,30 @@
                     <div class="row contact_layout">
                         <div class="col-lg-6 my-5 contact">
                             <h5 class="text-white text-center py-3">Send a message.</h5>
-                            <form action="" method="POST">
+                            <form action="https://formspree.io/f/mqkvwprr" method="POST">
                                 <div :class="{ titleUp : name }" class="input">
-                                    <input @input="nameInput" name="name" type="text" required>
+                                    <input v-model="nameIn" @input="nameInput" name="name" type="text" required>
                                 </div>
                                 <div :class="{ titleUp : email }" class="input">
-                                    <input @input="emailInput" name="email" type="email" required>
+                                    <input v-model="emailIn" @input="emailInput" name="email" type="email" required>
                                 </div>
                                 <div :class="{ titleUp : message }" class="input">
-                                    <textarea @input="messageInput" name="message" rows="4" cols="30" style="resize: none;" required></textarea>
+                                    <textarea v-model="messageIn" @input="messageInput" name="message" rows="4" cols="30" style="resize: none;" required></textarea>
                                 </div>
                                 <div>
-                                    <button class="btn btn-outline-light fw-light mx-2 my-1" type="submit">send</button>
-                                    <button class="btn btn-outline-light fw-light mx-2 my-1" type="button">clear</button>
+                                    <button ref="sub" class="btn btn-outline-light fw-light mx-2 my-1" type="submit">send</button>
+                                    <button class="btn btn-outline-light fw-light mx-2 my-1" type="button" @click="clear_form">clear</button>
                                 </div>
                             </form>
                         </div>
                         <div class="col-lg-6 my-5 contact-information d-flex align-items-center flex-column">
                             <ul>
-                                <li>Cell: <span>083 4964 817</span></li>
-                                <li>Email: <span>rezaarsrvyte@gmail.com</span></li>
+                                <li v-for="(value, key) in contact.details" :key="key">{{ key }}: <span>{{value}}</span></li>
                             </ul>
                             <ul class="flex-row">
-                                <li class=""><a href="#" class=""><img src="@/assets/github.png" alt=""></a></li>
-                                <li class=""><a href="#" class=""><img src="@/assets/whatsapp.png" alt=""></a></li>
-                                <li class=""><a href="#" class=""><img src="@/assets/linkedin.png" alt=""></a></li>
+                                <li v-for="social in contact.socials" :key="social" class=""><a :href="social.link" class=""><img :src="social.image" alt=""></a></li>
+                                <!-- <li class=""><a href="#" class=""><img src="@/assets/whatsapp.png" alt=""></a></li> -->
+                                <!-- <li class=""><a href="#" class=""><img src="@/assets/linkedin.png" alt=""></a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -55,10 +54,13 @@ export default {
             name: false,
             email: false,
             message: false,
-            elem: null
+            elem: null,
+            nameIn: null
         }
     },
     mounted(){
+        
+
         this.setTextColor(true);
         this.setPath();
         console.log( this.$store.state.path );
@@ -85,7 +87,15 @@ export default {
         },
         messageInput(event){
             this.message = this.isInput( event.target.value );
-        }
+        },
+        clear_form(){
+            this.nameIn = ''
+            this.emailIn = ''
+            this.messageIn = ''
+        },
+        // submitForm(){
+        //     alert('form submitted');
+        // }
     },
     components: {
         PageComponent,
@@ -93,6 +103,9 @@ export default {
     computed: {
         routeName(){
             return this.$route.name;
+        },
+        contact(){
+            return this.$store.state.contactData;
         }
     }
 }

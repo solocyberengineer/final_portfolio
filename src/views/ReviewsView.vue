@@ -13,58 +13,17 @@
                     </div>
                     <div class="row reviews_layout px-lg-5 mx-lg-5">
                         <div class="col-12 h-100 reviews px-lg-5 overflow-scroll">
-                            <div class="row review my-4">
-                                <div class="person_image col-lg-3"></div>
+                            <div class="row review my-4" v-for="review of testimonialsData" :key="review">
+                                <div class="person_image col-lg-3" :style="{
+                                    background: `radial-gradient( rgba(0,0,0,0.2), rgba(0,0,0,0.2) ), url(${review.profile})`}"></div>
                                 <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <div style="color: var(--baby_blue)">person name</div>
+                                    <div style="color: var(--baby_blue)">{{ review.name }}</div>
                                     <div>
-                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-half"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row review my-4">
-                                <div class="person_image col-lg-3"></div>
-                                <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <div style="color: var(--baby_blue)">person name</div>
-                                    <div>
-                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row review my-4">
-                                <div class="person_image col-lg-3"></div>
-                                <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <div style="color: var(--baby_blue)">person name</div>
-                                    <div>
-                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
+                                        <p class="text-light">{{ review.quote }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-5 p-5">
-                            <div class="pwatch"></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -80,6 +39,8 @@ export default {
         this.setTextColor(true);
         this.setPath();
         console.log( this.$store.state.path );
+
+        console.log('asd',this.testimonialsData)
     },
     methods:{
         setPath(){
@@ -95,6 +56,9 @@ export default {
     computed: {
         routeName(){
             return this.$route.name;
+        },
+        testimonialsData(){
+            return this.$store.state.testimonialsData;
         }
     }
 }

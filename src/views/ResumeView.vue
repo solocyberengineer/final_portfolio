@@ -12,64 +12,14 @@
                                     <div class="page_title text-white fs-4 fw-light">Experiences & Education</div>
                                 </div>
                                 <div class="row card_container py-5">
-                                    <div class="p-1 custom_card">
+                                    <div class="p-1 custom_card" v-for="card of edData" :key="card">
                                         <div class="bg-white h-100">
                                             <div class="h-25">
-                                                <h5 class="text-center py-2 text-black">2020</h5>
-                                                <h6 class="fw-light text-center">Matriculated</h6>
+                                                <h5 class="text-center py-2 text-black">{{ card.year }}</h5>
+                                                <h6 class="fw-light text-center">{{ card.title }}</h6>
                                             </div>
                                             <p class="h-50 px-4 py-5 text-center">
-                                                The year I <span class="fw-bold">finally finished</span> school.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="p-1 custom_card">
-                                        <div class="bg-white h-100">
-                                            <div class="h-25">
-                                                <h5 class="text-center py-2 text-black">2020</h5>
-                                                <h6 class="fw-light text-center">Short Courses</h6>
-                                            </div>
-                                            <p class="h-50 px-4 py-5 text-center">
-                                                Took some online courses to get some insight on <span class="fw-bold">web
-                                                    development</span>.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="p-1 custom_card">
-                                        <div class="bg-white h-100">
-                                            <div class="h-25">
-                                                <h5 class="text-center py-2 text-black">2021</h5>
-                                                <h6 class="fw-light text-center">Programming & Pentesting</h6>
-                                            </div>
-                                            <p class="h-50 px-4 py-5 text-center">
-                                                I did some <span class="fw-bold">self-teaching</span>. I picked up some
-                                                <span class="fw-bold">pen-testing</span> skills, and this led to increasing
-                                                my <span class="fw-bold">programming</span> skill.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="p-1 custom_card">
-                                        <div class="bg-white h-100">
-                                            <div class="h-25">
-                                                <h5 class="text-center py-2 text-black">2022</h5>
-                                                <h6 class="fw-light text-center">Casual Job</h6>
-                                            </div>
-                                            <p class="h-50 px-4 py-5 text-center">
-                                                I got a casual job in <span class="fw-bold">retail</span> for <span
-                                                    class="fw-bold">3 months</span>. I learn't and gained tons of experience
-                                                in such a little time.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="p-1 custom_card">
-                                        <div class="bg-white h-100">
-                                            <div class="h-25">
-                                                <h5 class="text-center py-2 text-black">2023</h5>
-                                                <h6 class="fw-light text-center">Life Choices Academy</h6>
-                                            </div>
-                                            <p class="h-50 px-4 py-5 text-center">
-                                                I'm futhering my <span class="fw-bold">web development</span> skill and
-                                                creating <span class="fw-bold">exposure</span>.
+                                                {{ card.description }}
                                             </p>
                                         </div>
                                     </div>
@@ -95,64 +45,21 @@
                                     <div id="carouselExampleInterval" ref="skillsslider"
                                         class="slider carousel slide d-flex align-items-center" data-bs-ride="carousel">
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
+                                            <div class="carousel-item active" v-for="skillset of skillsData" :key="skillset">
                                                 <div class="row skills_container py-5">
                                                     <div class="slider d-flex align-items-center">
-                                                        <div class="skill my-sm-5">
+                                                        <div class="skill my-sm-5" v-for="skill of skillset" :key="skill">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
+                                                                <b>{{ skill.experience }}</b>
+                                                                <small>{{skill.time}}</small>
                                                             </div>
                                                             <div
                                                                 class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                                JavaScript</div>
-                                                            <div class="image"></div>
-                                                        </div>
-                                                        <div class="skill my-sm-5">
-                                                            <div
-                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
-                                                            </div>
-                                                            <div
-                                                            class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                            JavaScript
-                                                            </div>
-                                                        <div class="image"></div>
-                                                        </div>
-                                                        <div class="skill my-sm-5">
-                                                            <div
-                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
-                                                            </div>
-                                                            <div
-                                                                class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                                JavaScript</div>
-                                                            <div class="image"></div>
-                                                        </div>
-                                                        <div class="skill my-sm-5">
-                                                            <div
-                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
-                                                            </div>
-                                                            <div
-                                                                class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                                JavaScript</div>
-                                                            <div class="image"></div>
-                                                        </div>
-                                                        <div class="skill my-sm-5">
-                                                            <div
-                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
-                                                            </div>
-                                                            <div
-                                                                class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                                JavaScript</div>
-                                                            <div class="image"></div>
+                                                                {{skill.name}}</div>
+                                                            <div class="image" :style="{
+                                                                
+                                                            }"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -319,6 +226,7 @@ export default {
         }
     },
     mounted() {
+
         this.setTextColor(true);
         this.setPath();
         console.log(this.$store.state.path);
@@ -330,14 +238,6 @@ export default {
         this.$refs.second.onmouseleave = () => {
             this.scroll = false;
         }
-        // window.onwheel = (e) => {
-        //     e.preventDefault();
-        //     if (e.deltaY > 0) {
-        //         this.ex_ed = false;
-        //     } else if (e.deltaY < 0) {
-        //         this.ex_ed = true;
-        //     }
-        // }
     },
     unmounted() {
         this.enableScroll();
@@ -361,12 +261,6 @@ export default {
         },
         preventDefault(event) {
             event.preventDefault();
-        },
-        navRight() {
-            this.$refs.skillsslider.style['margin-left'] = `${+this.$refs.skillsslider.style['margin-left'].slice(0, -2) + this.$refs.skillsslider.parentElement.offsetWidth}px`;
-        },
-        navLeft() {
-            this.$refs.skillsslider.style['margin-left'] = `${+this.$refs.skillsslider.style['margin-left'].slice(0, -2) - this.$refs.skillsslider.parentElement.offsetWidth}px`;
         }
     },
     components: {
@@ -376,6 +270,12 @@ export default {
         routeName() {
             return this.$route.name;
         },
+        edData(){
+            return this.$store.state.resumeData.education;
+        },
+        skillsData(){
+            return this.$store.state.resumeData.skills;
+        }
     }
 }
 </script>

@@ -19,7 +19,11 @@
                     <div class="col-lg-5 p-5 profile_cover">
                         <div class="image-viewer">
                             <div class="w-50 p-4 img">
-                                <div class="image"></div>
+                                <div ref="image" class="image" :style="{
+                                        background: `radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url(${homeData.background})`,
+                                        'background-size': 'cover'
+                                    }">
+                                </div>
                             </div>
                             <div class="fs-4 fw-light py-5 text-light">I'm an aspiring 
                                 <span class="aspiration">FullStack Developer</span>
@@ -42,7 +46,8 @@ export default {
             sceneVisible: false,
             render: null,
             cWidth: window.innerWidth,
-            cHeight: window.innerHeight
+            cHeight: window.innerHeight,
+            img: null
         }
     },
     mounted(){
@@ -55,20 +60,22 @@ export default {
         // console.log( this.$store.state.path );
 
         document.onmousemove = (e) => {
-            console.log(e);
+            // console.log(e);
             // console.log( "asd: ", this.terminalRotation() );
             let degreesX = 50;
             let degreesY = 30;
             let center = [-window.innerWidth / 2, -window.innerHeight / 2];
             let x = (center[0] + e.clientX) / window.innerWidth * 2 * degreesX;
             let y = (center[1] + e.clientY) / window.innerHeight * 2 * -degreesY;
-            console.log(`x: ${x}, y: ${y}`);
+            // console.log(`x: ${x}, y: ${y}`);
             try {
                 this.$refs.terminal.style['transform'] = `translate3d(0, 0, -200px) rotateY(${x}deg) rotateX(${y}deg) scale(100%)`;
             } catch (e){
                 return;
             }
         }
+
+
     },
     methods:{
         setPath(){
@@ -76,7 +83,7 @@ export default {
         },
         setTextColor(light){
             this.$store.dispatch('setTextColor', light);
-        }
+        },
     },
     components: {
         PageComponent,
@@ -84,6 +91,9 @@ export default {
     computed: {
         routeName(){
             return this.$route.name;
+        },
+        homeData(){
+            return this.$store.state.homeData;
         }
     }
 }
@@ -243,7 +253,8 @@ export default {
     height: auto;
     aspect-ratio: 1;
     border-radius: 1vw;
-    background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('@/assets/profile_portfolio.jpg');
+    /* background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('@/assets/profile_portfolio.jpg'); */
+    /* background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://i.ibb.co/Lr9hNQm/profile-portfolio.jpg'); */
     background-size: cover;
     /* background-position: center; */
     /* border: 10px dashed black; */

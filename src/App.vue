@@ -31,6 +31,7 @@ export default {
     window.onload = () => {
       this.loading = false
     }
+    this.$store.dispatch("getData");
   },
   computed: {
     disable_scroll(){

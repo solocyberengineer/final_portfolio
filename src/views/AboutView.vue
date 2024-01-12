@@ -7,12 +7,19 @@
                     <h1 class="title text-black z-2 position-relative">About</h1>
                     <div class="row about_layout">
                         <div class="image_layout h-100 col-sm-12 col-lg-4 p-lg-5 py-5">
-                            <div class="image h-100"></div>
+                            <div class="image h-100" 
+                            :style="{
+                                background: `url(${about.profile})`,
+                                'background-size': 'cover',
+                                'background-position': 'center',
+                                'mix-blend-mode': 'difference'
+                            }"
+                            ></div>
                         </div>
                         <div class="description h-100 col-sm-12 col-lg-4 text-white p-lg-5 d-flex flex-column justify-content-evenly">
                             <div>
                                 <h3>Alittle About Me</h3>
-                                <p class="fw-light">I am 21 years old, born in 2002 April. I am training a pattern ready to code and discover the world of development. All ideas start simple, they say.  They DO! I figured, and that's where I found my passion to discover the "magic" behind computers.</p>
+                                <p class="fw-light">{{ about.story }}</p>
                             </div>
                             <div>
                                 <h3>Quote</h3>
@@ -23,20 +30,10 @@
                         <div class="in_grid h-100 col-sm-12 col-lg-4">
                             <h3 class="interest_title d-flex justify-content-center align-items-center text-white">Interests</h3>
                             <div class="interests p-4">
-                                <div class="interest">
-                                    <small class="fw-medium">Game Development</small>
-                                    <i class="bi bi-controller fs-1"></i>
-                                    <small class="fw-medium">Unity 3D Engine</small>
-                                </div>
-                                <div class="interest">
-                                    <small class="fw-medium">Scripting Exploits</small>
-                                    <i class="bi bi-filetype-py fs-1"></i>
-                                    <small class="fw-medium">Python3</small>
-                                </div>
-                                <div class="interest">
-                                    <small class="fw-medium">Playing Sports</small>
-                                    <i class="bi bi-person-walking fs-1"></i>
-                                    <small class="fw-medium">Team Activites</small>
+                                <div class="interest" v-for="interest of about.interests" :key="interest">
+                                    <small class="fw-medium">{{ interest.title }}</small>
+                                    <img class="img img-fluid h-50" :src="interest.image" alt="portfolio">
+                                    <small class="fw-medium">{{ interest.footer }}</small>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +53,9 @@ export default {
         this.setTextColor(true);
         this.setPath();
         console.log( this.$store.state.path );
+
+        // console.log(this.about);
+        // console.log(this.about.interests[0].image)
     },
     methods:{
         setPath(){
@@ -71,6 +71,9 @@ export default {
     computed: {
         routeName(){
             return this.$route.name;
+        },
+        about(){
+            return this.$store.state.aboutData;
         }
     }
 }
@@ -101,10 +104,10 @@ a {
     }
 }
 .image {
-    background: url('@/assets/profile_portfolio.jpg');
-    background-size: cover;
-    background-position: center;
-    mix-blend-mode: difference;
+    /* background: url('@/assets/profile_portfolio.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* mix-blend-mode: difference; */
 }
 
 .interest_title {
