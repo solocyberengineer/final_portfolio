@@ -6,17 +6,20 @@
                 <!-- <div class="row title">
                     <h1>Reviews</h1>
                 </div> -->
-                <div class="container-fluid h-100 position-relative z-2 px-5 py-3">
+                <div class="container-fluid h-100 position-relative z-2 px-lg-5 py-3">
                     <h1 class="title text-white z-2 position-relative">Reviews</h1>
                     <div class="row subtitle">
                         <h5>What people think about my work</h5>
                     </div>
-                    <div class="row reviews_layout">
-                        <div class="col-7 h-100 reviews px-5 overflow-scroll">
+                    <div class="row reviews_layout px-lg-5 mx-lg-5">
+                        <div class="col-12 h-100 reviews px-lg-5 overflow-scroll">
                             <div class="row review my-4">
-                                <div class="person_image col-3"></div>
-                                <div class="person_quote col-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
+                                <div class="person_image col-lg-3"></div>
+                                <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
+                                    <div style="color: var(--baby_blue)">person name</div>
+                                    <div>
+                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
+                                    </div>
                                     <div>
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -27,9 +30,12 @@
                                 </div>
                             </div>
                             <div class="row review my-4">
-                                <div class="person_image col-3"></div>
-                                <div class="person_quote col-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ipsa tempora? Possimus natus iusto quaerat. Maiores corporis dolore ut magnam in. Adipisci minima iusto numquam quas dignissimos, magni minus alias!</p>
+                                <div class="person_image col-lg-3"></div>
+                                <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
+                                    <div style="color: var(--baby_blue)">person name</div>
+                                    <div>
+                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
+                                    </div>
                                     <div>
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -40,9 +46,12 @@
                                 </div>
                             </div>
                             <div class="row review my-4">
-                                <div class="person_image col-3"></div>
-                                <div class="person_quote col-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
-                                    <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ipsa tempora? Possimus natus iusto quaerat. Maiores corporis dolore ut magnam in. Adipisci minima iusto numquam quas dignissimos, magni minus alias! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ipsa tempora? Possimus natus iusto quaerat. Maiores corporis dolore ut magnam in. Adipisci minima iusto numquam quas dignissimos, magni minus alias!</p>
+                                <div class="person_image col-lg-3"></div>
+                                <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
+                                    <div style="color: var(--baby_blue)">person name</div>
+                                    <div>
+                                        <p class="text-light">Rezaar is an intelligent individual, always willing to help where he can. He is passionate about his work and executes his creativity with excellence.</p>
+                                    </div>
                                     <div>
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -53,9 +62,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 p-5">
+                        <!-- <div class="col-5 p-5">
                             <div class="pwatch"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -149,8 +158,12 @@ export default {
     background-size: cover;
     background-position: center;
 }
-.person_quote p {
-    color: white;
+.person_quote {
+    & p {
+        color: white;
+    }
+    &:hover {
+    }
 }
 
 .pwatch {

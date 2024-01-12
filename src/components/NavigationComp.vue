@@ -102,6 +102,7 @@ nav {
     right: 0;
     margin-inline: 1% !important;
     margin-block: auto !important;
+    padding-block: 0 !important;
 }
 
 @media screen and (max-width: 300px) {

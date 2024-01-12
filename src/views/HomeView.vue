@@ -8,18 +8,12 @@
                         <div ref="terminal" class="terminal text-white">
                             <div ref="terminal_out" class="container tab-container h-100">
                                 <!-- <div ref="tab_title" class="tab-title"><small>Terminal 1</small></div> -->
-                                <div ref="tty_interface" class="tty-interface px-5 d-flex align-items-center justify-content-evenly flex-column h-100">
+                                <div ref="tty_interface" class="tty-interface px-lg-5 d-flex align-items-center justify-content-evenly flex-column h-100">
                                     <h1 class="fw-bolder">Welcome to</h1>
                                     <h1 class="fw-bolder">my page.</h1>
                                     <h1>I'm Rezaar</h1>
                                 </div>
                             </div>
-                        </div>
-                        <div class="window-tab-container">
-                            <ul>
-                                <li class="window-tabs"><div class="icon"></div></li>
-                                <li class="window-tabs"><div class="icon"></div></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-5 p-5 profile_cover">
@@ -74,14 +68,6 @@ export default {
             } catch (e){
                 return;
             }
-        }
-        this.$refs.terminal.onmouseenter = () => {
-            // this.$refs.terminal.style['background'] = "var(--terminal)";
-            // this.$refs.tty_interface.style['background'] = "var(--terminal)";
-        }
-        this.$refs.terminal.onmouseleave = () => {
-            // this.$refs.tty_interface.style['background'] = "var(--terminalRGBA)";
-            // this.$refs.terminal.style['background'] = "var(--terminalRGBA)";
         }
     },
     methods:{
@@ -331,12 +317,47 @@ export default {
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 300px) {
     .terminal-container {
         height: 80vh;
     }
+}
+
+@media screen and (max-width: 991px) {
     .background {
         height: auto !important;
     }
+    .terminal {
+        transform: translate(0,0) rotateX(0deg) rotateY(0deg);
+        
+        &::before {
+            border: none;
+            height: 50%;
+        }
+    }
+    .terminal-container {
+        height: 60vh;
+        /* padding-inline: auto; */
+
+        & h1 {
+            font-size: 6vw;
+            -webkit-text-stroke: 1px yellow;
+        }
+        & h1:nth-child(1){
+            text-align: center
+        }
+        & h1:nth-child(3){
+            text-align: right;
+            /* text-decoration: underline; */
+            /* padding-block: 10px; */
+        }
+    }
+    .profile_cover {
+        padding: 10% !important;
+    }
+    .img {
+        padding: 1px !important;
+    }
 }
+
 </style>

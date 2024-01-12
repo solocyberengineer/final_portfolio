@@ -9,19 +9,8 @@
                         <small><i>I'm curious to find out what oppurtunities are ahead</i></small>
                     </div>
                     <div class="row contact_layout">
-                        <div class="col-6 contact-information d-flex align-items-center flex-column">
-                            <ul>
-                                <li>Cell: <span>083 4964 817</span></li>
-                                <li>Email: <span>rezaarsrvyte@gmail.com</span></li>
-                            </ul>
-                            <ul class="flex-row">
-                                <li class=""><a href="" class=""><img src="@/assets/github.png" alt=""></a></li>
-                                <li class=""><a href="" class=""><img src="@/assets/whatsapp.png" alt=""></a></li>
-                                <li class=""><a href="" class=""><img src="@/assets/linkedin.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6 contact">
-                            <h5 class="text-white text-center">Send a message.</h5>
+                        <div class="col-lg-6 my-5 contact">
+                            <h5 class="text-white text-center py-3">Send a message.</h5>
                             <form action="" method="POST">
                                 <div :class="{ titleUp : name }" class="input">
                                     <input @input="nameInput" name="name" type="text" required>
@@ -37,6 +26,17 @@
                                     <button class="btn btn-outline-light fw-light mx-2 my-1" type="button">clear</button>
                                 </div>
                             </form>
+                        </div>
+                        <div class="col-lg-6 my-5 contact-information d-flex align-items-center flex-column">
+                            <ul>
+                                <li>Cell: <span>083 4964 817</span></li>
+                                <li>Email: <span>rezaarsrvyte@gmail.com</span></li>
+                            </ul>
+                            <ul class="flex-row">
+                                <li class=""><a href="#" class=""><img src="@/assets/github.png" alt=""></a></li>
+                                <li class=""><a href="#" class=""><img src="@/assets/whatsapp.png" alt=""></a></li>
+                                <li class=""><a href="#" class=""><img src="@/assets/linkedin.png" alt=""></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -267,5 +267,44 @@ form {
     font-size: 1vw;
 }
 
+
+@media screen and (max-width: 991px) {
+    .background {
+        height: auto !important;
+    }
+    .input {
+        &::before {
+            font-size: 1.2vw;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .input {
+        &::before {
+            font-size: 1.8vw;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .input {
+        &::before {
+            font-size: 2.6vw;
+        }
+    }
+    .contact-information {
+        & ul li {
+            font-size: 3.4vw
+        }
+        & ul:nth-child(2) li {
+            width: 20%;
+        }
+    }
+}
+
+@media screen and (max-width: 300px) {
+    
+}
 
 </style>

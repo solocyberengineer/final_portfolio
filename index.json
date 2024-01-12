@@ -2,37 +2,61 @@
     "home": {
         "background": null
     },
-    "testimonials": [
-        {
-            "person": null,
-            "profile": null,
-            "quote": null
-        }
-    ],
-    "skills": [
-        {
-            "name": null,
-            "level": null,
-            "description": null,
-            "icon": null
-        }
-    ],
-    "education": [
-        {
-            "year": null,
-            "name": null,
-            "description": null
-        }
-    ],
+    "about": {
+        "profile": null,
+        "story": null,
+        "interests": [
+            {
+                "title": null,
+                "image": null,
+                "footer": null
+            }
+        ]
+    },
     "projects": [
         {
             "thumbnail": null,
+            "video": null,
+            "description": null,
             "github_link": null,
             "netlify_link": null
         }
     ],
-    "about": {
-        "profile": null,
-        "story": null 
+    "testimonials": [
+        {
+            "name": null,
+            "profile": null,
+            "quote": null,
+            "rating": null
+        }
+    ],
+    "resume": [
+        {
+            "education": [
+                {
+                    "year": null,
+                    "title": null,
+                    "description": null
+                }
+            ],
+            "skills": [
+                {
+                    "name": null,
+                    "image": null,
+                    "experience": null,
+                    "time": null
+                }
+            ]
+        }
+    ],
+    "contact": {
+        "details": {},
+        "socials": [
+            {
+                "image": null,
+                "link": null
+            }
+        ]
     }
+    
 }

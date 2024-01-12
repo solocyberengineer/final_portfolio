@@ -10,7 +10,7 @@
                 <div class="container-fluid h-100 position-relative z-2 px-5 py-3">
                     <h1 class="title text-white z-2 position-relative">My Projects</h1>
                     <div class="row project-layout">
-                        <div class="col-4 p-info text-white d-flex align-items-start justify-content-center flex-column">
+                        <div class="col-lg-4 p-info text-white d-flex align-items-start justify-content-center flex-column">
                             <p class="w-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel expedita magnam
                                 unde sequi dolores, dolorem nobis illum tenetur deserunt, ipsam doloribus debitis amet fuga
                                 minus, dolor eos ratione similique. Beatae.</p>
@@ -19,66 +19,24 @@
                                 <button class="btn btn-light text-dark m-1 p-btn">Site</button>
                             </div>
                         </div>
-                        <!-- <div id="#projectCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <div class="slider-container carousel-inner">
-                                <div class="carousel-item active " data-bs-interval="10000">
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item ">
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item ">
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                    <div class="project">
-                                        <div class="image" image=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div id="projectCarousel" class="col-8 slider-layout d-flex align-items-center carousel slide" data-bs-ride="carousel">
+                        <div id="projectCarousel" class="col-lg-8 slider-layout d-flex align-items-center carousel slide" data-bs-ride="carousel">
                             <div class="slider-container carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
-                                    <div class="d-flex h-100">
-                                        <div class="project">
-                                            <div class="image" image=""></div>
-                                        </div>
-                                        <div class="project">
-                                            <div class="image" image=""></div>
-                                        </div>
+                                    <div class="d-flex h-100 justify-content-center">
                                         <div class="project">
                                             <div class="image" image=""></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
-                                    <div class="d-flex h-100">
+                                    <div class="d-flex h-100 justify-content-center">
                                         <div class="project">
                                             <div class="image" image=""></div>
                                         </div>
-                                        <div class="project">
-                                            <div class="image" image=""></div>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-flex h-100 justify-content-center">
                                         <div class="project">
                                             <div class="image" image=""></div>
                                         </div>
@@ -256,7 +214,27 @@ export default {
 
 @media screen and (max-width: 991px) {
     .background {
-        height: auto !important;
+        height: 100vh !important;
+    }
+    .p-info p {
+        font-weight: 100;
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .background {
+        height: 100vh !important;
+    }
+    .p-info p {
+        font-weight: 100;
+        font-size: 3vw;
+    }
+    [type="button"] {
+        padding: 10%;
+    }
+    .p-btn {
+        font-size: 4vw;
+        width: 100%;
     }
 }
 

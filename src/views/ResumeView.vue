@@ -2,16 +2,16 @@
     <PageComponent>
         <template #Name>{{ routeName }}</template>
         <template #Content>
-            <div class="container-fluid background px-5">
-                <div class="container-fluid h-100 position-relative z-2 px-5 py-3">
+            <div class="container-fluid background px-lg-5">
+                <div class="container-fluid h-100 position-relative z-2 px-lg-5 py-3">
                     <h1 class="title z-2 position-relative">Resume</h1>
                     <div ref="second" class="row page_display d-flex justify-content-center">
-                        <div class="page_container col-12 bg-black p-4 z-1" v-if="ex_ed">
+                        <div class="page_container col-12 bg-black p-lg-4 z-1" v-if="ex_ed">
                             <div class="page">
                                 <div class="d-flex align-items-center justify-content-start p-0">
                                     <div class="page_title text-white fs-4 fw-light">Experiences & Education</div>
                                 </div>
-                                <div class="row card_container py-5 d-flex">
+                                <div class="row card_container py-5">
                                     <div class="p-1 custom_card">
                                         <div class="bg-white h-100">
                                             <div class="h-25">
@@ -76,25 +76,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="page_container col-12 bg-black p-4 z-1" v-else>
+                        <div class="page_container col-12 bg-black p-4 z-1" v-if="skills">
                             <div class="page">
                                 <div class="d-flex align-items-center justify-content-start p-0">
                                     <div class="page_title text-white fs-4 fw-light d-flex justify-content-between w-100">
                                         Skills
                                         <div>
-                                            <button class="btn fs-2 text-white" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev"><i class="bi bi-arrow-left-circle"></i></button>
-                                            <button class="btn fs-2 text-white" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next"><i class="bi bi-arrow-right-circle"></i></button>
+                                            <button class="btn fs-2 text-white" type="button"
+                                                data-bs-target="#carouselExampleInterval" data-bs-slide="prev"><i
+                                                    class="bi bi-arrow-left-circle"></i></button>
+                                            <button class="btn fs-2 text-white" type="button"
+                                                data-bs-target="#carouselExampleInterval" data-bs-slide="next"><i
+                                                    class="bi bi-arrow-right-circle"></i></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row skills_container py-5">
-                                    <div id="carouselExampleInterval" ref="skillsslider" class="slider carousel slide d-flex align-items-center"
-                                        data-bs-ride="carousel">
+                                    <div id="carouselExampleInterval" ref="skillsslider"
+                                        class="slider carousel slide d-flex align-items-center" data-bs-ride="carousel">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
                                                 <div class="row skills_container py-5">
                                                     <div class="slider d-flex align-items-center">
-                                                        <div class="skill">
+                                                        <div class="skill my-sm-5">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
                                                                 <b>Experienced</b>
@@ -105,7 +109,19 @@
                                                                 JavaScript</div>
                                                             <div class="image"></div>
                                                         </div>
-                                                        <div class="skill">
+                                                        <div class="skill my-sm-5">
+                                                            <div
+                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
+                                                                <b>Experienced</b>
+                                                                <small>1 year/s</small>
+                                                            </div>
+                                                            <div
+                                                            class="name d-flex flex-column justify-content-start p-1 align-items-center">
+                                                            JavaScript
+                                                            </div>
+                                                        <div class="image"></div>
+                                                        </div>
+                                                        <div class="skill my-sm-5">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
                                                                 <b>Experienced</b>
@@ -116,7 +132,7 @@
                                                                 JavaScript</div>
                                                             <div class="image"></div>
                                                         </div>
-                                                        <div class="skill">
+                                                        <div class="skill my-sm-5">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
                                                                 <b>Experienced</b>
@@ -127,18 +143,7 @@
                                                                 JavaScript</div>
                                                             <div class="image"></div>
                                                         </div>
-                                                        <div class="skill">
-                                                            <div
-                                                                class="info d-flex flex-column justify-content-end p-2 align-items-center">
-                                                                <b>Experienced</b>
-                                                                <small>1 year/s</small>
-                                                            </div>
-                                                            <div
-                                                                class="name d-flex flex-column justify-content-start p-1 align-items-center">
-                                                                JavaScript</div>
-                                                            <div class="image"></div>
-                                                        </div>
-                                                        <div class="skill">
+                                                        <div class="skill my-sm-5">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
                                                                 <b>Experienced</b>
@@ -166,6 +171,7 @@
                                                                 JavaScript</div>
                                                             <div class="image"></div>
                                                         </div>
+
                                                         <div class="skill">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
@@ -177,6 +183,7 @@
                                                                 JavaScript</div>
                                                             <div class="image"></div>
                                                         </div>
+
                                                         <div class="skill">
                                                             <div
                                                                 class="info d-flex flex-column justify-content-end p-2 align-items-center">
@@ -293,6 +300,7 @@ export default {
     data() {
         return {
             ex_ed: true,
+            skills: true,
             scroll: false,
             scroll_count: 0,
             timer: null
@@ -314,7 +322,7 @@ export default {
         this.setTextColor(true);
         this.setPath();
         console.log(this.$store.state.path);
-        this.disableScroll();
+        // this.disableScroll();
 
         this.$refs.second.onmouseenter = () => {
             this.scroll = true;
@@ -322,14 +330,14 @@ export default {
         this.$refs.second.onmouseleave = () => {
             this.scroll = false;
         }
-        window.onwheel = (e) => {
-            e.preventDefault();
-            if (e.deltaY > 0) {
-                this.ex_ed = false;
-            } else if (e.deltaY < 0) {
-                this.ex_ed = true;
-            }
-        }
+        // window.onwheel = (e) => {
+        //     e.preventDefault();
+        //     if (e.deltaY > 0) {
+        //         this.ex_ed = false;
+        //     } else if (e.deltaY < 0) {
+        //         this.ex_ed = true;
+        //     }
+        // }
     },
     unmounted() {
         this.enableScroll();
@@ -374,6 +382,10 @@ export default {
 <style scoped>
 :root {
     --accent: #3498db;
+}
+
+.background {
+    height: auto !important;
 }
 
 .title {
@@ -495,10 +507,69 @@ export default {
     border-radius: 0.6vw;
 }
 
-@media screen and (max-width: 991px) {
-    .background {
-        height: auto !important;
+@media screen and (max-width: 1200px) {
+    .slider {
+        flex-direction: column;
+    }
+
+    .skill {
+        /* display: grid; */
+        /* grid-template-columns: 10% 60% 10%; */
+        /* width: 100%; */
+        /* height: 30vh; */
+        /* border-bottom: 1px solid white; */
+        margin-block: 20vh !important;
+        height: 50vh;
+    }
+    .name {
+        width: 60%;
+        height: auto;
+        top: 0%;
+        transform: translate(-50%, calc(-50% - 34%));
+        /* background-color: white; */
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        /* border-bottom: 1px solid transparent; */
+        color: white;
+        position: absolute;
+        border-radius: 0.6vw;
+    }
+
+    .info {
+        width: 60%;
+        height: auto;
+        top: 100%;
+        left: 50%;
+        z-index: 0;
+        transform: translate(-50%, calc(-50% + 50%));
+        /* background-color: white; */
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        /* border-bottom: 1px solid transparent; */
+        color: white;
+        position: absolute;
+        border-radius: 0.6vw;
     }
 }
 
+@media screen and (max-width: 991px) {
+    .card_container {
+        display: grid;
+        grid-template-columns: repeat(1, calc(100%));
+        padding-inline: 20%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .image {
+        width: 50%;
+        height: 50% !important;
+        margin: auto !important;
+        
+    }
+    .skill{
+        display: flex;
+    }
+}
 </style>
