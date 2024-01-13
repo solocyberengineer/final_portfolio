@@ -1,11 +1,14 @@
 <template>
     <footer class="container-fluid bg-dark text-center flex-column d-flex align-items-center justify-content-center">
-        <div class="pt-4">
-            <a class="link mx-1" href="#"><small class="quick_links">Github</small></a>
-            <a class="link mx-1" href="#"><small class="quick_links">Whatsapp</small></a>
-            <a class="link mx-1" href="#"><small class="quick_links">LinkedIn</small></a>
-        </div>
         <small class="text-white py-4">Rezaar's Portfolio&copy;{{ year['year'] }}</small>
+        <ul class="pb-4 ps-0 pe-0 d-flex align-items-center justify-content-center">
+            <li><a class="btn mx-1" :href="social.link" v-for="social in contact.socials" :key="social"><div :style="{
+                background: `url(${social.image})`,
+                'background-size': 'cover',
+                'background-position': 'center',
+                padding: '1.4vw'
+            }" :alt="social.name"></div></a></li>
+        </ul>
     </footer>
 </template>
 
@@ -54,7 +57,11 @@ export default {
             })
         }
     },
-    methods: {}
+    computed: {
+        contact(){
+            return this.$store.state.contactData;
+        }
+    }
 }
 </script>
 
@@ -80,6 +87,12 @@ footer {
 
 .quick_links {
     font-size: 0.9vw;
+}
+
+.btn img {
+    /* height: 100%; */
+    width: 100%;
+    object-fit: cover;
 }
 
 @keyframes hideFooter {
