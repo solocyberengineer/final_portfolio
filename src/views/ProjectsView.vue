@@ -11,16 +11,15 @@
                     <h1 class="title text-white z-2 position-relative">My Projects</h1>
                     <div class="row project-layout">
                         <div class="col-lg-4 p-info text-white d-flex align-items-start justify-content-center flex-column">
-                            <!-- {{ this.current_project }} -->
                             <p class="w-75">{{ this.current_project.description }}</p>
                             <div class="d-flex w-50">
                                 <button class="btn btn-dark m-1 p-btn" @click="github">Github</button>
                                 <button class="btn btn-light text-dark m-1 p-btn" @click="site">Site</button>
                             </div>
                         </div>
-                        <div id="projectCarousel" class="col-lg-8 slider-layout d-flex align-items-center carousel slide" data-bs-ride="carousel">
+                        <div id="projectCarousel" class="col-lg-8 slider-layout d-flex align-items-center carousel slide" data-bs-ride="carousel" @slid="setProject">
                             <div class="slider-container carousel-inner">
-                                <div class="carousel-item" data-bs-interval="10000" v-for="(project, index) in projects" :key="project" :class="{ 'carousel-item': true, 'active': index === activeIndex }" @click="setProject(project.name)">
+                                <div class="carousel-item" data-bs-interval="10000" v-for="(project, index) in projects" :key="project" :class="{ 'carousel-item': true, 'active': index === activeIndex }" @click="setProject(index)" @change="setProject(index)" @load="test">
                                     <div class="d-flex h-100 justify-content-center">
                                         <div class="project">
                                             <div class="image" image="" :style="{
@@ -67,7 +66,6 @@ export default {
         }
     },
     mounted() {
-        // this.current_project = this.projects[1];
         this.setPath();
         console.log(this.$store.state.path);
         this.setTextColor(true);
@@ -79,16 +77,17 @@ export default {
         setTextColor(light) {
             this.$store.dispatch('setTextColor', light);
         },
-        setProject(){
-            this.current_project = this.projects[this.activeIndex];
-            console.log( this.current_project );
-            // alert('hello world');
+        setProject(index){
+            this.current_project = this.projects[index];
         },
         github(){
             location.href = this.current_project.github_link
         },
         site(){
             location.href = this.current_project.netlify_link
+        },
+        test(){
+            alert('hello world');
         }
     },
     components: {

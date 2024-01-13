@@ -15,7 +15,11 @@
                         <div class="col-12 h-100 reviews px-lg-5 overflow-scroll">
                             <div class="row review my-4" v-for="review of testimonialsData" :key="review">
                                 <div class="person_image col-lg-3" :style="{
-                                    background: `radial-gradient( rgba(0,0,0,0.2), rgba(0,0,0,0.2) ), url(${review.profile})`}"></div>
+                                    background: `radial-gradient( rgba(0,0,0,0.2), rgba(0,0,0,0.2) ), url(${review.profile})`,
+                                    'background-size': 'cover',
+                                    'background-position': 'center'
+                                }"
+                                ></div>
                                 <div class="person_quote col-lg-9 d-flex align-items-center justify-content-center flex-column h-100 py-4 px-4">
                                     <div style="color: var(--baby_blue)">{{ review.name }}</div>
                                     <div>

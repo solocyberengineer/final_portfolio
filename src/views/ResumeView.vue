@@ -58,13 +58,15 @@
                                                                 class="name d-flex flex-column justify-content-start p-1 align-items-center">
                                                                 {{skill.name}}</div>
                                                             <div class="image" :style="{
-                                                                
+                                                                background: `url('${skill.image}')`,
+                                                                'background-size': 'cover',
+                                                                'background-position': 'center'
                                                             }"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="carousel-item">
+                                            <!-- <div class="carousel-item">
                                                 <div class="row skills_container py-5">
                                                     <div class="slider d-flex align-items-center">
                                                         <div class="skill">
@@ -126,8 +128,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="carousel-item">
+                                            </div> -->
+                                            <!-- <div class="carousel-item">
                                                 <div class="row skills_container py-5">
                                                     <div class="slider d-flex align-items-center">
                                                         <div class="skill">
@@ -187,7 +189,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -363,7 +365,7 @@ export default {
     background-color: var(--baby_blue);
     width: 100%;
     height: 100%;
-    background-image: url('@/assets/js.png');
+    /* background-image: url('@/assets/js.png'); */
     background-position: center;
     background-size: cover;
     transition: 300ms;
